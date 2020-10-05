@@ -1,0 +1,6 @@
+1 - move gitignore file in the root folder(proshop)
+2 - add .env under the voice "misc" in the gitignore file
+3 - go in the root (proshop) and type:
+     git init   // initializes our repository
+     git add .  // add everything
+     git status // to visualize anything in our staging area
