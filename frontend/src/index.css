@@ -1,13 +1,136 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+main {
+  min-height: 80vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.rating span {
+  margin: 0.1rem
 }
+
+h3 {
+  padding: 1rem 0
+}
+
+.btn-block:hover,
+.confirm:hover{
+  background-color:lightgreen;
+  color:#343A40;
+}
+
+.cancel:hover{
+  background-color:#b52924;
+  color:white;
+}
+
+.navLink {
+  color:white;
+}
+
+.fa-user,
+.fa-user,
+.fa-tags,
+.fa-shopping-cart
+.fa-sign-out-alt {
+  position:relative;
+  margin-right:2px;
+}
+
+.dropdownSpan {
+  position:relative;
+  left:8px;
+}
+
+.fa-cc-visa,
+.fa-cc-paypal,
+.fa-cc-amex {
+  position:relative;
+  left:1rem;
+  bottom:4px
+}
+
+
+.navDropdown{
+  background-color:#343a40;
+  position:relative;
+  bottom:4px;
+}
+
+.coolBorder {
+  border-bottom: 0.1rem solid darkorange
+}
+
+.coolBorder:focus {
+  box-shadow: 0 0 0 0.1rem darkorange;
+  border-bottom: none
+}
+
+.dropdown-item:active,
+.dropdown-item.active {
+  background-color: #343a40;
+  color:white;
+}
+
+.dropdown-item:hover {
+  background-color:lightgreen;
+  color:#343A40;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+ .btn-primary:not(:disabled):not(.disabled).active:focus,
+  .show>.btn-primary.dropdown-toggle:focus {
+  box-shadow: none;
+}
+
+.btn-primary:focus,
+ .btn-primary.focus {
+  box-shadow: none;
+ }
+
+.page-item.active .page-link{
+  background-color: #343a40;
+  border: #343a40;
+}
+
+.bg-dark.carousel.slide {
+  margin-top:2rem;
+  border-radius:12px;
+  border:1px solid grey
+}
+
+.carousel-caption {
+  position:absolute;
+  top:-10px;
+}
+
+.carousel-caption h2 {
+  color: #ffff;
+}
+
+.carousel-inner img {
+  display: block;
+  margin:50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  border-radius:50%;
+}
+
+.carouselFont{
+  font-size:16px;
+}
+
+ @media (max-width: 765px) {
+   .review {
+     text-align: center;
+   }
+
+   .reviewButton1 {
+     display:block;
+     margin-left:auto;
+     margin-right:auto;
+     width: 24rem;
+   }
+
+   .carouselFont {
+    font-size:12.5px;
+  }
+ }
