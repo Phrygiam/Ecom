@@ -22,7 +22,7 @@ const Searchbar = ({history}) => {
                         onChange={ (e) => setKeyword(e.target.value)}>
             </Form.Control>
 
-            <Button type="submit" className = "ml-1 btn-dark confirm rounded" size="sm">Search</Button>
+            <Button type="submit" className = "ml-1 my-1 btn-dark confirm rounded" size="sm">Search</Button>
         </Form>
     )
 }

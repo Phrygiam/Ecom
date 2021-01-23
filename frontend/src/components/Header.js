@@ -22,7 +22,7 @@ const Header = ({history}) => {
                 <Container>
 
                     <LinkContainer to = '/'>
-                    <Navbar.Brand>Proshop</Navbar.Brand>
+                    <Navbar.Brand>Naoss Electronics</Navbar.Brand>
                     </LinkContainer>
                 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
