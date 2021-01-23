@@ -108,4 +108,6 @@
       git commit -m "Prepare for deployment"
      Go to Heroku, in deploy page find "geroku git:remote -a naoss electronics" and past it in the root
       git push heroku main
+     In case of errors, always type "heroku logs"
+     IMPORTANT: since .env is in .gitingore, we need to write all env variables on heroku's page (Settings, Config Vars)
 

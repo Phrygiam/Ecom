@@ -33,14 +33,13 @@ const fetchOrderSlice = createSlice({
     }
 })
 
-export function fetchOrder(id) {
+export function fetchOrder(id, token) {
 
     return async dispatch => {
         dispatch(isLoading())
 
         try {
 
-            const token = userInfoFromStorage.token
             const orderData = {
                 method: "GET",
                 headers: {'auth-token': token}

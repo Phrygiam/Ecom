@@ -45,7 +45,8 @@ const OrderScreen = ({match}) => {
             }
 
             if(orderInfo || isSuccessful || isDelivered) {
-                dispatch(fetchOrder(orderId))
+                const token = logState.userInfo.token
+                dispatch(fetchOrder(orderId, token))
             } 
             
             if(!orderInfo.isPaid) {
