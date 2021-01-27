@@ -58,7 +58,7 @@ function ProductScreen({history, match}) {
                     <ListGroup variant='flush' style={{border:"2px solid rgba(255,255,255,.1)"}}>
 
                         <ListGroup.Item className="glass">
-                            <h3 className="ivory">{productDetails.name}</h3>
+                            <h3 style={{color:"rgba(255,255,255,.8)"}}>{productDetails.name}</h3>
                         </ListGroup.Item>
 
                         <ListGroup.Item className="glass">
