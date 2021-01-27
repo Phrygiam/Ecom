@@ -47,7 +47,8 @@ const OrderScreen = ({match}) => {
             if(orderInfo.length !== undefined || isSuccessful || isDelivered) {
                 const token = logState.userInfo.token
                 dispatch(fetchOrder(orderId, token))
-            } else if (!orderInfo.isPaid) {
+            } 
+            if (!orderInfo.isPaid) {
                 if(!window.paypal) {
                     addPayPalScript()
                 } else {
