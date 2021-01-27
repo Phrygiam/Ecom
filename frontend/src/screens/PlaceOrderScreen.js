@@ -61,9 +61,9 @@ const PlaceOrderScreen = ({history}) => {
 
         
     return (
-       <Container className="my-5">
-            {logState.isLogged === false ? (<Alert variant = "danger" style={{marginTop: "4rem"}}> You must be logged in to proceed to checkout <Link to="/login" style={{marginLeft:"2rem"}}>Log in</Link> </Alert>
-             ) :  orderState.hasErrors ? (<Message variant = "danger"> {orderState.message} </Message>
+       <Container>
+            {logState.isLogged === false ? (<Alert variant = "danger" style={{top: "4rem"}}> You must be logged in to proceed to checkout <Link to="/login" style={{marginLeft:"2rem"}}>Log in</Link> </Alert>
+             ) :  orderState.hasErrors ? (<Alert variant = "danger" style={{top:"4rem"}}> {orderState.message} </Alert>
              ) :(
                 <>
 
@@ -71,19 +71,19 @@ const PlaceOrderScreen = ({history}) => {
                     
                     <CheckoutSteps step1 step2 step3/>
 
-                    <Row>
+                    <Row style={{marginTop:"5rem"}}>
 
                         <Col md={8}>
 
                             <ListGroup variant="flush">
 
-                                <ListGroup.Item>
+                                <ListGroup.Item className="ivory" style={{backgroundColor:"rgba(0,0,0,.05)", borderTop:"1px solid rgba(255,255,255,.2)"}}>
                                     <h3 className="mb-3">Shipping</h3>
                                     <p className="h5">Address:</p>
                                         <span>{shippingState.shippingInfo.address} - {shippingState.shippingInfo.city} - {shippingState.shippingInfo.postalCode} - {shippingState.shippingInfo.country}</span>
                                 </ListGroup.Item>
                                     
-                                <ListGroup.Item>
+                                <ListGroup.Item className="ivory" style={{backgroundColor:"rgba(0,0,0,.05)", borderTop:"1px solid rgba(255,255,255,.2)"}}>
                                     <h3 className="mb-3">Payment Method:</h3>
                                     <p className="h5">Method:</p>
                                     <Row>
@@ -98,20 +98,20 @@ const PlaceOrderScreen = ({history}) => {
                                     
                                 </ListGroup.Item>
 
-                                <ListGroup.Item>
+                                <ListGroup.Item className="ivory" style={{backgroundColor:"rgba(0,0,0,.05)", borderTop:"1px solid rgba(255,255,255,.2)"}}>
                                     <h3>Order Items:</h3>
                                     {cart.cartItems.length === 0 ? (<Message variant="danger">Your cart is empty</Message>
                                     ) : (
                                         <ListGroup variant="flush">
                                             {cart.cartItems.map( (item, index) =>(
-                                                <ListGroup.Item key={index}>
+                                                <ListGroup.Item className="ivory" key={index} style={{backgroundColor:"rgba(0,0,0,.05)", borderTop:"1px solid rgba(255,255,255,.2)"}}>
                                                     <Row>
                                                         <Col md={2}>
                                                             <Image src={item.image} alt= {item.name} fluid rounded></Image>
                                                         </Col>
 
                                                         <Col>
-                                                        <Link to={`/product/${item.product}`}> 
+                                                        <Link to={`/product/${item.product}`} style={{color:"rgba(255,255,255,.8)"}}> 
                                                             {item.name}
                                                         </Link>
                                                         </Col>
@@ -132,42 +132,42 @@ const PlaceOrderScreen = ({history}) => {
                         </Col>
 
                         <Col md={4}>
-                            <Card>
+                            <Card style={{backgroundColor:"rgba(0,0,0,.05)"}}>
                                 <ListGroup variant="flush">
 
-                                    <ListGroup.Item>
+                                    <ListGroup.Item className="ivory" style={{backgroundColor:"rgba(0,0,0,.05)", borderTop:"1px solid rgba(255,255,255,.2)"}}>
                                         <h3>Order Summary</h3>
                                     </ListGroup.Item>
 
-                                    <ListGroup.Item>
+                                    <ListGroup.Item className="ivory" style={{backgroundColor:"rgba(0,0,0,.05)", borderTop:"1px solid rgba(255,255,255,.2)"}}>
                                         <Row>
                                             <Col>Items:</Col>
                                             <Col>${itemsPrice}</Col>
                                         </Row>
                                     </ListGroup.Item>
 
-                                    <ListGroup.Item>
+                                    <ListGroup.Item className="ivory" style={{backgroundColor:"rgba(0,0,0,.05)", borderTop:"1px solid rgba(255,255,255,.2)"}}>
                                         <Row>
                                             <Col>Shipping:</Col>
                                             <Col>${shippingPrice}</Col>
                                         </Row>
                                     </ListGroup.Item>
 
-                                    <ListGroup.Item>
+                                    <ListGroup.Item className="ivory" style={{backgroundColor:"rgba(0,0,0,.05)", borderTop:"1px solid rgba(255,255,255,.2)"}}>
                                         <Row>
                                             <Col>Tax:</Col>
                                             <Col>${taxPrice}</Col>
                                         </Row>
                                     </ListGroup.Item>
 
-                                    <ListGroup.Item>
+                                    <ListGroup.Item className="ivory" style={{backgroundColor:"rgba(0,0,0,.05)", borderTop:"1px solid rgba(255,255,255,.2)"}}>
                                         <Row>
                                             <Col>Total:</Col>
                                             <Col>${totalPrice}</Col>
                                         </Row>
                                     </ListGroup.Item>
 
-                                    <ListGroup.Item>
+                                    <ListGroup.Item className="ivory" style={{backgroundColor:"rgba(0,0,0,.05)", borderTop:"1px solid rgba(255,255,255,.2)"}}>
                                         <Button 
                                             type="button" 
                                             className="btn-block" 

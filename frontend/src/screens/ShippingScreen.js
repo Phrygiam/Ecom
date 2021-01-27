@@ -27,21 +27,21 @@ const ShippingScreen = ({ history }) => {
 
     return (
         <Container>
-            {logState.isLogged === false ? (<Alert variant = "danger" style={{marginTop: "4rem"}}> You must be logged in to proceed to checkout <Link to="/login" style={{marginLeft:"2rem"}}>Log in</Link> </Alert>
+            {logState.isLogged === false ? (<Alert variant = "danger" style={{top:"4rem"}}> You must be logged in to proceed to checkout <Link to="/login" style={{marginLeft:"2rem"}}>Log in</Link> </Alert>
              ) : (
                 <>
                 
                     <Meta title="Naoss Electronics | Shipping" />
 
                     <CheckoutSteps step1/>
-                    <h1 className = "text-center my-5" style={{color:"#343a40"}}>Shipping</h1>
+                    <h2 className = "text-center my-5 ivory">Shipping</h2>
 
                     <Form onSubmit={submitHandler}>
 
                         <Row>
                             <Col md={6}>
                                 <Form.Group controlId="address" >
-                                    <Form.Label className="d-flex flex-column align-items-left">Address </Form.Label>
+                                    <Form.Label className="d-flex flex-column align-items-left ivory">Address </Form.Label>
                                     <Form.Control className= "coolBorder" type="text" placeholder="enter address" value={address} required onChange={ (e)=> setAddress(e.target.value)}></Form.Control>
                                 </Form.Group>
                             </Col>
@@ -50,7 +50,7 @@ const ShippingScreen = ({ history }) => {
                         <Row>
                             <Col md={6}>
                                 <Form.Group controlId="city" >
-                                    <Form.Label className="d-flex flex-column align-items-left">City </Form.Label>
+                                    <Form.Label className="d-flex flex-column align-items-left ivory">City </Form.Label>
                                     <Form.Control className= "coolBorder" type="text" placeholder="enter city" value={city} required onChange={ (e)=> setCity(e.target.value)}></Form.Control>
                                 </Form.Group>
                             </Col>
@@ -59,7 +59,7 @@ const ShippingScreen = ({ history }) => {
                         <Row>
                             <Col md={6}>
                                 <Form.Group controlId="postalCode" >
-                                    <Form.Label className="d-flex flex-column align-items-left">Postal Code </Form.Label>
+                                    <Form.Label className="d-flex flex-column align-items-left ivory">Postal Code </Form.Label>
                                     <Form.Control className= "coolBorder" type="text" placeholder="enter postal code" value={postalCode} required onChange={ (e)=> setPostalCode(e.target.value)}></Form.Control>
                                 </Form.Group>
                             </Col>
@@ -68,7 +68,7 @@ const ShippingScreen = ({ history }) => {
                         <Row>
                             <Col md={6}>
                                 <Form.Group controlId="country" >
-                                    <Form.Label className="d-flex flex-column align-items-left">Country </Form.Label>
+                                    <Form.Label className="d-flex flex-column align-items-left ivory">Country </Form.Label>
                                     <Form.Control className= "coolBorder" type="text" placeholder="enter country" value={country} required onChange={ (e)=> setCountry(e.target.value)}></Form.Control>
                                 </Form.Group>
                             </Col>

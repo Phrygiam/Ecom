@@ -14,16 +14,16 @@ const CheckoutSteps = ({step1, step2, step3, step4}) => {
 
 
     return (
-        <Nav className = "justify-content-center my-4">
+        <Nav className = "justify-content-center" style={{position:"relative", top:"2rem"}}>
 
             <Nav.Item>
                 { step1 ? (
                     <LinkContainer to = "/shipping" style={{border:shippingData.length !==0 ? "2px solid lightgreen" : "2px solid  #343a40"}}>
-                        <Nav.Link className="checkoutNavLink"> Shipping </Nav.Link>
+                        <Nav.Link className="checkoutNavLink"> <strong style={{color:"lightgreen"}}>Shipping</strong> </Nav.Link>
                     </LinkContainer>
                 ) : (
                     <LinkContainer to = "/shipping">
-                        <Nav.Link disabled> Shipping </Nav.Link>
+                        <Nav.Link disabled> <strong style={{color:"rgba(255,255,255,.8)"}}>Shipping</strong> </Nav.Link>
                     </LinkContainer>
                 )}
             </Nav.Item>
@@ -31,20 +31,20 @@ const CheckoutSteps = ({step1, step2, step3, step4}) => {
             <Nav.Item>
                 { step2 ? (
                     <LinkContainer to = "/payment" style={{border: paymentData ? "2px solid lightgreen" : "2px solid  #343a40"}}>
-                        <Nav.Link> Payment </Nav.Link>
+                        <Nav.Link> <strong style={{color:"lightgreen"}}>Payment</strong> </Nav.Link>
                     </LinkContainer>
                 ) : (
-                    <Nav.Link disabled> Payment </Nav.Link>
+                    <Nav.Link disabled> <strong style={{color:"rgba(255,255,255,.8)"}}>Payment</strong> </Nav.Link>
                 )}
             </Nav.Item>
 
             <Nav.Item>
                 { step3 ? (
                     <LinkContainer to = "/placeorder" style={{border:"2px solid lightgreen"}}>
-                        <Nav.Link> Place Order </Nav.Link>
+                        <Nav.Link> <strong style={{color:"lightgreen"}}>Place Order</strong> </Nav.Link>
                     </LinkContainer>
                 ) : (
-                    <Nav.Link disabled> Place Order </Nav.Link>
+                    <Nav.Link disabled> <strong style={{color:"rgba(255,255,255,.8)"}}>Place Order</strong> </Nav.Link>
                 )}
             </Nav.Item>
 

@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 import {Row, Col, Image, ListGroup, Button, Form, Container, Alert} from "react-bootstrap"
 import Rating from "../components/Rating"
 import Loader from "../components/Loader"
-import Message from "../components/Message"
 import Meta from "../components/Meta"
 import {fetchDetails, detailsSelector} from "../Redux/Reducers/fetchUpdateProductSlice"
 import {createReview, fetchReview, deleteReview, productReviewSelector} from "../Redux/Reducers/productReviewSlice"
@@ -80,7 +79,7 @@ const ProductReviewScreen = ({match, history}) => {
             
             { loading ? <Loader /> :
 
-            hasErrors ? <Message variant = "danger"> {errorMessage} </Message> :
+            hasErrors ? <Alert variant = "danger" style={{top:"4rem"}}> {errorMessage} </Alert> :
             <>
             <Meta title={productDetails.name + " |" + " Review"} />
             <Row>
@@ -92,19 +91,19 @@ const ProductReviewScreen = ({match, history}) => {
 
                     <ListGroup variant='flush'>
 
-                        <ListGroup.Item>
+                        <ListGroup.Item className="ivory" style={{background:"rgba(52, 58, 64, 0.1)", borderTop:"1px solid rgba(255,255,255,.2)"}}>
                             <h3>{productDetails.name}</h3>
                         </ListGroup.Item>
 
-                        <ListGroup.Item>
+                        <ListGroup.Item className="ivory" style={{background:"rgba(52, 58, 64, 0.1)", borderTop:"1px solid rgba(255,255,255,.2)"}}>
                             <Rating value={productDetails.rating} text={`${productDetails.numReviews} reviews`}/> 
                         </ListGroup.Item>
 
-                        <ListGroup.Item>
+                        <ListGroup.Item className="ivory" style={{background:"rgba(52, 58, 64, 0.1)", borderTop:"1px solid rgba(255,255,255,.2)"}}>
                             Price: $ {productDetails.price}
                         </ListGroup.Item>
 
-                        <ListGroup.Item>
+                        <ListGroup.Item className="ivory" style={{background:"rgba(52, 58, 64, 0.1)", borderTop:"1px solid rgba(255,255,255,.2)"}}>
                             Description: {productDetails.description}
                         </ListGroup.Item>
 
@@ -126,13 +125,13 @@ const ProductReviewScreen = ({match, history}) => {
             <Row>
                 <>
                 <Col md={8}>
-                    <h5 style={{color:"#343a40", marginTop:"2rem", fontStyle:"italic"}}> Write a customer review</h5>
+                    <h5 className="ivory" style={{marginTop:"2rem", fontStyle:"italic"}}> Write a customer review</h5>
                     <Form onSubmit={submitHandler} className="my-5">
 
                     <Col md={4} className="my-5">
 
                         <Form.Group controlId="rating">
-                            <Form.Label>Rating</Form.Label>
+                            <Form.Label className="ivory" >Rating</Form.Label>
                             <Form.Control as="select" 
                                         value={rating}
                                         onChange={ (e) => setRating(e.target.value)}
@@ -150,7 +149,7 @@ const ProductReviewScreen = ({match, history}) => {
                     
                     <Col md={8}>
                         <Form.Group controlId="comment">
-                            <Form.Label>Your review</Form.Label>
+                            <Form.Label className="ivory">Your review</Form.Label>
                             <Form.Control as="textarea" 
                                           value={comment}
                                           row="4" 

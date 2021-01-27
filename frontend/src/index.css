@@ -1,3 +1,6 @@
+
+/* GENERAL */
+
 main {
   min-height: 80vh;
 }
@@ -10,20 +13,32 @@ h3 {
   padding: 1rem 0
 }
 
-.btn-block:hover,
-.confirm:hover{
-  background-color:lightgreen;
-  color:#343A40;
-}
-
-.cancel:hover{
-  background-color:#b52924;
-  color:white;
-}
-
 .navLink {
   color:white;
 }
+
+/* SCROLL BARS */ 
+
+::-webkit-scrollbar {
+  width: 15px;
+  background-color: rgba(52, 58, 64, 0.1);
+  border: solid 1px rgba(255,255,255,.3);
+  background-clip: padding-box;
+  backdrop-filter: blur( 4px );
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:#d6ac70;
+  height:5px;
+}
+
+/* ICONS */
 
 .fa-user,
 .fa-user,
@@ -44,9 +59,20 @@ h3 {
 .fa-cc-amex {
   position:relative;
   left:1rem;
-  bottom:4px
+  bottom:4px;
+  color: rgba(255,255,255,.8);
 }
 
+
+/* TABLE */
+
+td {
+  color: rgba(255,255,255,.8)
+}
+
+td:hover{
+  color:orange;
+}
 
 .navDropdown{
   background-color:#343a40;
@@ -54,12 +80,8 @@ h3 {
   bottom:4px;
 }
 
-.coolBorder {
-  border-bottom: 0.1rem solid darkorange
-}
-
 .coolBorder:focus {
-  box-shadow: 0 0 0 0.1rem darkorange;
+  box-shadow: 0 0 0 0.1rem rgba(255,255,255,.8);
   border-bottom: none
 }
 
@@ -74,6 +96,95 @@ h3 {
   color:#343A40;
 }
 
+/* ALERTS */
+
+.alert-success {
+  background-color: lightgreen;
+  border:lightgreen;
+  color:#343A40;
+}
+
+.alert-warning {
+  background-color: #484948;
+  border:  #484948;
+  color: rgba(255,255,255,.8);
+}
+
+.alert-danger {
+  background-color:#712b29a1;
+  border: #712b29a1;
+  color: rgba(255,255,255,.8);
+}
+
+/* FORM */
+
+label.custom-file-label {
+  background-color: rgba(52, 58, 64, 0);
+  color:orange;
+  border: solid 2px rgba(255,255,255,.3);
+  background-clip: padding-box;
+  backdrop-filter: blur( 4px );
+}
+
+label.custom-file-label::after {
+  background-color: rgba(52, 58, 64, 0);
+  color:orange;
+  background-clip: padding-box;
+  backdrop-filter: blur( 4px );
+}
+
+.form-control {
+  background-color:rgba(0,0,0,.05)!important;
+  color:orange!important;
+}
+
+.form-control:focus {
+  background-color:rgba(0,0,0,.08)!important;
+  color:orange!important;
+  border: 1px solid orange!important;
+  box-shadow: none!important;
+}
+
+input[type="password" i]::placeholder,
+input[type="text" i]::placeholder,
+input[type="number" i]::placeholder {
+  color: rgba(255,255,255,0.8)
+}
+
+input[type="radio"]:checked + *::before,
+input[type="checkbox"]:checked + *::before {
+  background-color:orange;
+  border-color: orange;
+  border:0.1rem solid rgba(255,255,255,.6);
+
+}
+input[type="radio"]:checked + *,
+input[type="checkbox"]:checked + * {
+  color: orange;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="radio"] + *::before,
+input[type="checkbox"] + *::before {
+  content: "";
+  display: inline-block;
+  vertical-align: bottom;
+  width:1rem;
+  height:1rem;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color:rgba(255,255,255,.6);
+  margin-right: 0.3rem;
+  position: relative;
+  bottom:2px
+}
+
+/* BUTTONS */
 .btn-primary:not(:disabled):not(.disabled):active:focus,
  .btn-primary:not(:disabled):not(.disabled).active:focus,
   .show>.btn-primary.dropdown-toggle:focus {
@@ -85,15 +196,35 @@ h3 {
   box-shadow: none;
  }
 
-.page-item.active .page-link{
-  background-color: #343a40;
-  border: #343a40;
+ .btn,
+ .btn:focus {
+   background-color:#d6ac70;
+ }
+
+ .btn-block:hover,
+.confirm:hover{
+  background-color:lightgreen;
+  color:#343A40;
 }
+
+.page-item.active .page-link{
+  background-color:#d6ac70;
+  border:#d6ac70;
+}
+
+.cancel:hover{
+  background-color:#b52924;
+  color:white;
+}
+
+
+/* CAROUSEL */
 
 .bg-dark.carousel.slide {
   margin-top:2rem;
   border-radius:12px;
-  border:1px solid grey
+  border: solid 2px rgba(255,255,255,.1);
+  background-color:rgba(0,0,0,.075)!important;
 }
 
 .carousel-caption {
@@ -111,11 +242,54 @@ h3 {
   margin-left: auto;
   margin-right: auto;
   width: 30%;
-  border-radius:50%;
+  
 }
 
 .carouselFont{
   font-size:16px;
+}
+
+/* SCREEN BACKGROUND STYLES */
+
+
+.wrapper {
+  position:relative;
+  max-width:100vw;;
+  min-height:100vh;
+  background: rgb(166,145,110);
+  background: linear-gradient(90deg, rgba(166,145,110,1) 0%, rgba(52,58,64,1) 100%, rgba(0,118,210,1) 100%, rgba(54,64,54,1) 100%);
+}
+
+.glass {
+  background-color: rgba(52, 58, 64, 0.1);
+  border: solid 2px rgba(255,255,255,.3);
+  background-clip: padding-box;
+  backdrop-filter: blur( 4px );
+}
+
+.page-link{
+  background-color: rgba(52, 58, 64, 0.1);
+  backdrop-filter: blur( 4px );
+  border: solid 2px rgba(255,255,255,.1);
+  color: rgba(255,255,255,.8)
+}
+
+.page-link:hover {
+  background-color: rgba(52, 58, 64, 0.1);
+  color: rgba(255,255,255,.8)
+}
+
+.page-item.active .page-link {
+  position:relative;
+  background-color: rgba(52, 58, 64, 0.1);
+  top:2px;
+  color:gold;
+}
+
+/* COLORS */
+
+.ivory {
+  color:rgba(255,255,255,.8);
 }
 
  @media (max-width: 765px) {
@@ -127,10 +301,14 @@ h3 {
      display:block;
      margin-left:auto;
      margin-right:auto;
-     width: 24rem;
+     width: 21rem;
    }
 
    .carouselFont {
     font-size:12px;
+  }
+
+  .orderID {
+    font-size:17px;
   }
  }

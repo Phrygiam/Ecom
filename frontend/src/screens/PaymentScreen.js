@@ -32,24 +32,25 @@ const PaymentScreen = ({ history }) => {
     }, [history, shippingData.address])
 
     return (
-        <Container className="my-5">
-            {logState.isLogged === false ? (<Alert variant = "danger" style={{marginTop: "4rem"}}> You must be logged in to proceed to checkout <Link to="/login" style={{marginLeft:"2rem"}}>Log in</Link> </Alert>
+        <Container>
+            {logState.isLogged === false ? (<Alert variant = "danger" style={{top: "4rem"}}> You must be logged in to proceed to checkout <Link to="/login" style={{marginLeft:"2rem"}}>Log in</Link> </Alert>
              ) : (
                 <>
                     <Meta title="Naoss Electronics | Payment" />
                     
                     <CheckoutSteps step1 step2/>
-                    <h1 className = "text-center my-5" style={{color:"#343a40"}}>Payment</h1>
+                    <h1 className = "text-center ivory" style={{marginTop:"5rem"}}>Payment</h1>
 
-                    <Form onSubmit={submitHandler} className="d-flex flex-column align-items-center">
+                    <Form onSubmit={submitHandler} className="d-flex flex-column align-items-center my-5">
 
                         <Form.Group>
 
-                            <Form.Label as="legend">Select Method</Form.Label>
+                            <Form.Label as="legend" className="ivory">Select Method</Form.Label>
 
                             <Col>
                                 <Row className = "my-3">
                                     <Form.Check
+                                        className="ivory"
                                         type="radio"
                                         value="PayPal"
                                         id="1"
@@ -63,6 +64,7 @@ const PaymentScreen = ({ history }) => {
 
                                 <Row className = "my-3">
                                     <Form.Check
+                                        className="ivory"
                                         type="radio"
                                         value="Visa"     
                                         id="2"
@@ -76,6 +78,7 @@ const PaymentScreen = ({ history }) => {
 
                                 <Row className = "my-3">
                                     <Form.Check 
+                                        className="ivory"
                                         type="radio"
                                         value="AmericanExpress"
                                         id="3"

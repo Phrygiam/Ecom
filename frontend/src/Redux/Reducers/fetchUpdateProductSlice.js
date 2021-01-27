@@ -191,13 +191,12 @@ export function createProduct(name, image, brand, category, countInStock, descri
     }
 }
 
-export function updateProduct(name, image, brand, category, countInStock, description, price, productId) {
+export function updateProduct(name, image, brand, category, countInStock, description, price, productId, token) {
     return async dispatch => {
         dispatch (getDetails())
 
         try {
 
-            const token = userInfoFromStorage.token
             const config = {
                 method: "PUT",
                 headers: {

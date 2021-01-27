@@ -1,10 +1,8 @@
 import React, {useEffect} from 'react'
 import {LinkContainer} from "react-router-bootstrap"
-import {Link} from "react-router-dom"
 import {Table, Alert, Button, Container} from "react-bootstrap"
 import {useDispatch, useSelector} from "react-redux"
 import Loader from "../components/Loader"
-import Message from "../components/Message"
 import Meta from "../components/Meta"
 import {fetchOrderListSelector, listAllOrders} from "../Redux/Reducers/fetchOrderListSlice"
 import {logSelector} from "../Redux/Reducers/logSlice"
@@ -32,13 +30,13 @@ const OrderListScreen = ({history}) => {
     return (
         <Container>
             {listLoading ? <Loader /> :
-             listHasErrors ? <Message variant = "danger"> {listMessage} </Message> : (
+             listHasErrors ? <Alert variant = "danger" style={{top:"4rem"}}> {listMessage} </Alert> : (
                  <>
                  
                  <Meta title ="Admin Panel | Order List" />
 
-                 <h1 className ="my-4" style={{color:"#343a40"}}> Users </h1>
-                 <Table striped bordered hover responsive className="table-sm">
+                 <h1 className ="ivory" style={{position:"relative", top:"2rem"}}> Users </h1>
+                 <Table striped bordered hover responsive className="my-5 table-sm ivory">
                     <thead>
                         <tr>
                             <th>ID: </th>

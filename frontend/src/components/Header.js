@@ -33,7 +33,7 @@ const Header = ({history}) => {
 
                     <Nav className="ml-auto">
 
-                        {log.isLogged && <h5 style={{marginTop:"0.8rem", marginRight:"5rem", bottom:"20px", color:"rgba(255,255,255,0.5)"}}> Welcome, {log.userInfo.name}! </h5>}
+                        {log.isLogged && <h5 style={{marginTop:"0.8rem", marginRight:"5rem", bottom:"20px", color:"rgba(255,255,255,0.8)"}}> Welcome, {log.userInfo.name}! </h5>}
 
                         
 

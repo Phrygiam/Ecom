@@ -3,7 +3,6 @@ import {Link} from "react-router-dom"
 import {Button, Form, Container, Alert} from "react-bootstrap"
 import {useDispatch, useSelector} from "react-redux"
 import Loader from "../components/Loader"
-import Message from "../components/Message"
 import Meta from "../components/Meta"
 import {fetchUpdateUserSelector, fetchUser, updateUser} from "../Redux/Reducers/fetchUpdateUserSlice"
 import {logSelector} from "../Redux/Reducers/logSlice"
@@ -48,9 +47,9 @@ const UserEditScreen = ( {match, history} ) => {
         
         <Container className="d-flex flex-column align-items-center" >
 
-            {loading ? <Loader /> : hasErrors === "serverError" ? <Message variant = "danger"> {message} </Message> :
+            {loading ? <Loader /> : hasErrors === "serverError" ? <Alert variant = "danger" style={{top:"4rem"}}> {message} </Alert> :
             logState.isLogged === false ?
-            <Alert variant = "danger" style={{marginTop: "4rem"}}> You must be logged in as an Admin to view this page <Link to="/login" style={{marginLeft:"2rem"}}>Log in</Link> </Alert>
+            <Alert variant = "danger" style={{top: "4rem"}}> You must be logged in as an Admin to view this page <Link to="/login" style={{marginLeft:"2rem"}}>Log in</Link> </Alert>
             :
 
             <>
@@ -61,22 +60,23 @@ const UserEditScreen = ( {match, history} ) => {
                     <Button className = "btn-dark my-3 rounded confirm">Go Back</Button>
                 </Link>
     
-            <h1 className="my-5">Update Account</h1>
+            <h1 className="my-5 ivory">Update Account</h1>
              
                 <Form onSubmit={submitHandler} >
 
                     <Form.Group controlId="name">
-                        <Form.Label className="d-flex flex-column align-items-center">Name </Form.Label>
+                        <Form.Label className="d-flex flex-column align-items-center ivory">Name </Form.Label>
                         <Form.Control className= "coolBorder" type="name" placeholder="enter name" value={name} onChange={ (e)=> setName(e.target.value)}></Form.Control>
                     </Form.Group>
 
                     <Form.Group controlId="email" className="my-4">
-                        <Form.Label className="d-flex flex-column align-items-center">Email Address</Form.Label>
+                        <Form.Label className="d-flex flex-column align-items-center ivory">Email Address</Form.Label>
                         <Form.Control className= "coolBorder" type="email" placeholder="enter email" value={email} onChange={ (e)=> setEmail(e.target.value)}></Form.Control>
                     </Form.Group>
 
                     <Form.Group controlId="isAdmin">
                         <Form.Check
+                            className="ivory"
                             type="checkbox"
                             label="isAdmin"
                             checked={isAdmin}
@@ -84,7 +84,7 @@ const UserEditScreen = ( {match, history} ) => {
                         </Form.Check>
                     </Form.Group>
 
-                    <Button type="submit" className="btn-block btn-dark my-5 rounded confirm" size="md">Update</Button>
+                    <Button type="submit" className="btn-block btn-dark my-5 rounded confirm" size="md"> Update </Button>
                     
                 </Form>    
              </>

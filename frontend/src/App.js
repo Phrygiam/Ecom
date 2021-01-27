@@ -25,7 +25,9 @@ function App() {
   return (
     <Router>
       <Header />
-        
+
+         <Container className="wrapper">
+
           <Container>
             <Route path ='/' component = {HomeScreen} exact />
             <Route path ='/admin/userList' component = {UserListScreen} />
@@ -47,10 +49,12 @@ function App() {
             <Route path ='/cart/:id?' component = {CartScreen} />
             <Route path ='/page/:pageNumber' component={HomeScreen} />        
             <Route path ='/search/:keyword' component={HomeScreen} exact/>
-            <Route path ='/search/:keyword/page/:pageNumber' component={HomeScreen} />        
+            <Route path ='/search/:keyword/page/:pageNumber' component={HomeScreen} />
           </Container>
-        
-      <Footer />
+
+        <Footer />   
+  
+      </Container>
     </Router>
   );
 }

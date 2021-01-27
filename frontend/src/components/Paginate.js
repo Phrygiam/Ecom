@@ -8,7 +8,7 @@ const Paginate = ( {page, pages, keyword ="", isAdmin=false} ) => {
     return pages > 1 && (
         <Pagination>
             {[...Array(pages).keys()].map(page => (
-                <LinkContainer 
+                <LinkContainer
                     key={page+1} 
                     to= { !isAdmin ? keyword ? `/search/${keyword}/page/${page+1}` : `/page/${page+1}` : `/admin/productList/${page+1}` }>
                     <Pagination.Item active={page+1 === page}> {page+1}</Pagination.Item>

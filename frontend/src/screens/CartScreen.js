@@ -31,12 +31,12 @@ const CartScreen = ({match, location, history}) => {
         <Meta title="Naoss Electronics | Cart" />
         <Row md={12}>
             <Col>
-                {cart.cartItems.length === 0 ? ( <Alert variant = "warning" style={{marginTop: "4rem"}}> Your Shopping Cart is empty. <Link to="/" style={{marginLeft:"2rem"}}>Go Back</Link> </Alert> 
+                {cart.cartItems.length === 0 ? ( <Alert variant = "warning" style={{top:"4rem"}}> Your Shopping Cart is empty. <Link to="/" style={{marginLeft:"2rem", color:"rgba(255,255,255,.8)"}}>Go Back</Link> </Alert> 
                 ):(
-                    <ListGroup variant="flush" className="my-5" md={12}>
+                    <ListGroup variant="flush" className="my-5" md={12} style={{border:"2px solid rgba(255,255,255,.1)"}}>
                         {cart.cartItems.map(item =>(
 
-                            <ListGroup.Item key={item.product}>
+                            <ListGroup.Item key={item.product} className="ivory" style={{backgroundColor:"rgba(0,0,0,.05)"}}>
 
                                 <Row>
 
@@ -45,7 +45,7 @@ const CartScreen = ({match, location, history}) => {
                                     </Col>
 
                                     <Col md={2} className = "my-3 h5">
-                                        <Link to={`/product/${item.name}`}>{item.name}</Link>
+                                        <Link className="ivory" to={`/product/${item.name}`}>{item.name}</Link>
                                     </Col>
 
                                     <Col md={2} className = "my-3 h5">${item.price}</Col>
@@ -80,23 +80,26 @@ const CartScreen = ({match, location, history}) => {
                 )}
             </Col>
 
+            {cart.cartItems.length !== 0 &&
             <Col md={4}>
-                <Card className = "my-5">
+                <Card className="my-5" style={{backgroundColor:"rgba(0,0,0,.05)"}} >
                     <ListGroup variant = "flush">
 
-                            <ListGroup.Item>
+                            <ListGroup.Item style={{backgroundColor: "rgba(0,0,0,.05)", color:"rgba(255,255,255,.8)"}}>
                                 <h3>Subtotal ({cart.cartItems.reduce( (accumulator, currentItem) => accumulator + currentItem.quantity, 0 )}) items</h3>
                                 $ {cart.cartItems.reduce( (accumulator, currentItem) => accumulator + currentItem.quantity * currentItem.price, 0).toFixed(2)}
                             </ListGroup.Item>
 
-                            <ListGroup.Item>
+                            <ListGroup.Item 
+                                    className="d-flex flex-column align-items-center"
+                                    style={{backgroundColor: "rgba(0,0,0,.05)", color:"rgba(255,255,255,.8)", borderTop:"1px solid rgba(255,255,255,.2)"}}>
                                     <Button type="button" className = "btn-dark confirm rounded" disabled={cart.cartItems.length === 0} onClick = {checkOutHandler}>Proceed To Checkout</Button>
                             </ListGroup.Item>
 
                     </ListGroup>
                 </Card>
             </Col>
-            
+            }
         </Row>
         </>
     )

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
-import {Row, Col, Image, ListGroup, Button, Form, Container} from "react-bootstrap"
+import {Row, Col, Image, ListGroup, Button, Form, Container, Alert} from "react-bootstrap"
 import Rating from "../components/Rating"
 import Loader from "../components/Loader"
 import Message from "../components/Message"
@@ -44,7 +44,7 @@ function ProductScreen({history, match}) {
             
             { loading ? <Loader /> :
 
-              hasErrors ? <Message variant = "danger"> {errorMessage} </Message> :
+              hasErrors ? <Alert variant = "danger" style={{top:"4rem"}}> {errorMessage} </Alert> :
               
               <>
               <Meta title={productDetails.name} />
@@ -55,22 +55,22 @@ function ProductScreen({history, match}) {
 
                 <Col md={4}>
 
-                    <ListGroup variant='flush'>
+                    <ListGroup variant='flush' style={{border:"2px solid rgba(255,255,255,.1)"}}>
 
-                        <ListGroup.Item>
-                            <h3>{productDetails.name}</h3>
+                        <ListGroup.Item className="glass">
+                            <h3 className="ivory">{productDetails.name}</h3>
                         </ListGroup.Item>
 
-                        <ListGroup.Item>
+                        <ListGroup.Item className="glass">
                             <Rating value={productDetails.rating} text={`${productDetails.numReviews} reviews`}/> 
                         </ListGroup.Item>
 
-                        <ListGroup.Item>
-                            Price: $ {productDetails.price}
+                        <ListGroup.Item className="glass">
+                            <p className="ivory">Price: $ {productDetails.price}</p>
                         </ListGroup.Item>
 
-                        <ListGroup.Item>
-                            Description: {productDetails.description}
+                        <ListGroup.Item className=" glass overflow-auto" style={{maxHeight:"10rem"}}>
+                            <p className="ivory"> {productDetails.description}</p>
                         </ListGroup.Item>
                     </ListGroup>
 
@@ -79,28 +79,28 @@ function ProductScreen({history, match}) {
                 
                 <Col md={3} className="my-1">
                     
-                    <ListGroup variant = "flush">
+                    <ListGroup variant = "flush" style={{border:"2px solid rgba(255,255,255,.1)"}}>
                        
-                        <ListGroup.Item>
+                        <ListGroup.Item className="glass">
                             <Row>
-                                <Col> Price: </Col>
-                                <Col>$ {productDetails.price} </Col>
+                                <Col className="ivory"> Price: </Col>
+                                <Col className="ivory">$ {productDetails.price} </Col>
                             </Row>
                         </ListGroup.Item>  
 
-                        <ListGroup.Item>  
+                        <ListGroup.Item className="glass">  
                             <Row>
-                                <Col> Status: </Col>
+                                <Col className="ivory"> Status: </Col>
                                 <Col className ={productDetails.countInStock > 0 ? "text-success font-weight-bold" : "text-danger font-weight-bold" }>{productDetails.countInStock > 0 ? "In Stock" : " Out of stock"} </Col>
                             </Row>  
                         </ListGroup.Item>
 
                         {productDetails.countInStock > 0 && (
-                            <ListGroup.Item>
+                            <ListGroup.Item className="glass">
                                 <Row>
-                                    <Col> Quantity:</Col>
+                                    <Col className="ivory"> Quantity:</Col>
                                     <Col md="auto">
-                                     <Form.Control as= "select" value = {quantity} onChange = { (e) => setQuantity(e.target.value)}>
+                                     <Form.Control as= "select" value = {quantity} onChange = { (e) => setQuantity(e.target.value)} className="glass" style={{color:"lightgreen",   background: "rgb(59 64 68)"}}>
                                          {
                                              [...Array(productDetails.countInStock).keys()].map( x => (
                                                  x < 5 && (
@@ -116,7 +116,7 @@ function ProductScreen({history, match}) {
                             </ListGroup.Item>
                         )}
 
-                        <ListGroup.Item>
+                        <ListGroup.Item className="glass">
                             <Button
                                 onClick = {addToCartHandler}
                                 className="btn-block rounded"
@@ -134,7 +134,7 @@ function ProductScreen({history, match}) {
             <Row>
                <Col md={8}>
                   
-                    <h1 className="review my-3" style={{color:"#343a40"}}>Reviews</h1>
+                    <h1 className="review my-3 ivory">Reviews</h1>
     
                     { productDetails.reviews !== undefined && logState.isLogged && productReview.rating ?
                      <Button className = "reviewButton1 btn-dark my-4 confirm rounded"onClick={createReviewHandler}>Edit review</Button>
@@ -145,10 +145,10 @@ function ProductScreen({history, match}) {
         
                    {productDetails.numReviews === 0 && logState.isLogged ? (
                         <>
-                            <Message variant="success">There are no reviews yet</Message>
+                            <Message variant="warning">There are no reviews yet</Message>
                             <Row>
                                 <Col md={8}>
-                                    <p className="h3" style={{marginBottom:"22px", color:"#343a40", fontStyle:"italic"}}>Be the first to review this product!</p>
+                                    <p className="h3" style={{marginBottom:"22px", color:"rgba(255,255,255,.8)", fontStyle:"italic"}}>Be the first to review this product!</p>
                                 </Col>
                             
                                 <Col md={4}>
@@ -167,7 +167,7 @@ function ProductScreen({history, match}) {
                        
                        { productDetails.reviews !== undefined && productDetails.reviews.map(review => (
                            
-                           <ListGroup.Item key={review._id}>
+                           <ListGroup.Item key={review._id} className="glass ivory">
                                 <p style={{position:"relative", right:"12px"}}>{review.name}</p>
                                 {}
                                 <Row>

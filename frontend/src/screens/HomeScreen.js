@@ -2,7 +2,6 @@ import React, {useEffect} from 'react'
 import {Row, Col, Alert, Button} from "react-bootstrap"
 import Product from "../components/Product"
 import Loader from "../components/Loader"
-import Message from "../components/Message"
 import ProductsCarousel from "../components/ProductsCarousel"
 import Paginate from "../components/Paginate"
 import Meta from "../components/Meta"
@@ -25,6 +24,7 @@ const HomeScreen = ({match}) => {
     
     return (
         <>
+
             <Meta />
 
             {!keyword ? <ProductsCarousel /> :
@@ -32,11 +32,11 @@ const HomeScreen = ({match}) => {
                 <Button className = "btn-dark my-3 confirm rounded">Go Back</Button>
             </Link>}
             
-            <h1 className = 'my-4 text-center' style={{color:"#343a40"}}> Latest Products </h1>
+            {!keyword && <h1 className = 'my-4 text-center' style={{color:"rgba(255,255,255,.9)"}}> Best Sellers </h1>}
             
                 {loading ? <Loader /> :
 
-                 hasErrors ? <Message variant = "danger" > {errorMessage} </Message> :
+                 hasErrors ? <Alert variant = "danger" style={{top:"4rem"}}> {errorMessage} </Alert> :
 
                  productData.length === 0 ?
                     <>

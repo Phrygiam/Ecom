@@ -37,17 +37,17 @@ const LoginScreen = ({history}) => {
             
             <Meta title="Naoss Electronics | Login" />
             
-            <h1 className="my-5">Sign in</h1>
+            <h1 className="my-5 ivory">Sign in</h1>
              
                 <Form onSubmit={submitHandler} >
 
                     <Form.Group controlId="email" >
-                        <Form.Label>Email Address</Form.Label>
+                        <Form.Label className="ivory">Email Address</Form.Label>
                         <Form.Control type="email" placeholder="enter email" className="coolBorder" value={email} onChange={ (e)=> setEmail(e.target.value)}></Form.Control>
                     </Form.Group>
 
                     <Form.Group controlId="password" >
-                        <Form.Label>Password</Form.Label>
+                        <Form.Label className="ivory">Password</Form.Label>
                         <Form.Control type="password" placeholder="enter password" className="coolBorder" value={password} onChange={ (e)=> setPassword(e.target.value)}></Form.Control>
                     </Form.Group>
 
@@ -60,7 +60,7 @@ const LoginScreen = ({history}) => {
                 </Row>
             
                 <Row className ="my-5">
-                    <Col>
+                    <Col className="ivory">
                     New customer? <Link to={"/register"} style={{textDecoration: "none"}}><Button className ="btn-dark confirm rounded" size="sm">Register</Button></Link>
                     </Col>
                 </Row>

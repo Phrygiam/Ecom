@@ -15,9 +15,7 @@ const UserListScreen = ({history}) => {
     const dispatch = useDispatch()
     const {loading, hasErrors, message, users} = useSelector(userListSelector)
     const logState = useSelector(logSelector)
-    const log = useSelector(logSelector)
     
-
     const deleteHandler = (id) => {
         if(window.confirm("Are you sure?")) {
             dispatch(deleteUser(id))
@@ -28,7 +26,7 @@ const UserListScreen = ({history}) => {
         if(!logState.isLogged) {
             history.push("/login")
         } else if(logState.userInfo && logState.userInfo.isAdmin) {
-            let token = log.userInfo.token
+            let token = logState.userInfo.token
             dispatch(fetchUsers(token))
         } else if (logState.userInfo && !logState.userInfo.isAdmin) {
             history.push("/")
@@ -39,15 +37,15 @@ const UserListScreen = ({history}) => {
     return (
         <Container>
             {loading ? <Loader /> :
-             hasErrors ? <Message variant = "danger"> {message} </Message> :
-             logState.isLogged === false ? (<Alert variant = "danger" style={{marginTop: "4rem"}}> You must be logged in as an Admin to view this page <Link to="/login" style={{marginLeft:"2rem"}}>Log in</Link> </Alert>
+             hasErrors ? <Alert variant = "danger" style={{top: "4rem"}}> {message} </Alert> :
+             logState.isLogged === false ? (<Alert variant = "danger" style={{top: "4rem"}}> You must be logged in as an Admin to view this page <Link to="/login" style={{marginLeft:"2rem"}}>Log in</Link> </Alert>
              ) : (
                  <>
 
                  <Meta title="Admin Panel | Users List" />
                  
-                 <h1 className ="my-4" style={{color:"#343a40"}}> Users </h1>
-                 <Table striped bordered hover responsive className="table-sm">
+                 <h1 className ="ivory" style={{position:"relative", top:"2rem"}}> Users </h1>
+                 <Table striped bordered hover responsive className="my-5 table-sm ivory">
                     <thead>
                         <tr>
                             <th>ID: </th>
@@ -60,9 +58,9 @@ const UserListScreen = ({history}) => {
                     <tbody>
                             {users.map(user => (
                                 <tr key={user._id}>
-                                    <td>{user._id}</td>
-                                    <td>{user.name}</td>
-                                    <td> <a href = {`Send mail to: ${user.email}`}> {user.email} </a> </td>
+                                    <td> {user._id} </td>
+                                    <td> {user.name} </td>
+                                    <td> {user.email} </td>
                                     <td>{user.isAdmin ?
                                         (<i className="fas fa-check" style={{color:"green"}}></i>)
                                          : 

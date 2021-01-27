@@ -1,14 +1,12 @@
 import React, {useEffect} from 'react'
-import {LinkContainer} from "react-router-bootstrap"
 import {Link} from "react-router-dom"
 import {Table, Alert, Button, Container, Row, Col} from "react-bootstrap"
 import {useDispatch, useSelector} from "react-redux"
 import Loader from "../components/Loader"
-import Message from "../components/Message"
 import Paginate from "../components/Paginate"
 import Meta from "../components/Meta"
 import {productsSelector, fetchProducts} from "../Redux/Reducers/productsSlice"
-import { updateProduct, deleteProduct, getDetailsReset} from "../Redux/Reducers/fetchUpdateProductSlice"
+import { deleteProduct, getDetailsReset} from "../Redux/Reducers/fetchUpdateProductSlice"
 import {logSelector} from "../Redux/Reducers/logSlice"
 
 const ProductListScreen = ({ match, history}) => {
@@ -49,7 +47,7 @@ const ProductListScreen = ({ match, history}) => {
     return (
         <Container>
             {loading ? <Loader /> :
-             hasErrors ? <Message variant = "danger"> {errorMessage} </Message> :
+             hasErrors ? <Alert variant = "danger" style={{top:"4rem"}}> {errorMessage} </Alert> :
              logState.isLogged === false ? (<Alert variant = "danger" style={{marginTop: "4rem"}}> You must be logged in as an Admin to view this page <Link to="/login" style={{marginLeft:"2rem"}}>Log in</Link> </Alert>
              ) : (
                  <>
@@ -59,7 +57,7 @@ const ProductListScreen = ({ match, history}) => {
                  <Row className = "align-items-center">
 
                      <Col>
-                        <h1 className ="my-4" style={{color:"#343a40"}}>Products</h1>
+                        <h1 className ="my-4 ivory">Products</h1>
                      </Col>
 
                      <Col className = "text-right">
@@ -71,7 +69,7 @@ const ProductListScreen = ({ match, history}) => {
                  </Row>
 
                 <>
-                 <Table striped bordered hover responsive className="table-sm">
+                 <Table striped bordered hover responsive className="table-sm ivory">
                     <thead>
                         <tr>
                             <th>ID: </th>

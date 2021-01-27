@@ -29,8 +29,9 @@ const UpdateProductScreen = ({ match, history }) => {
 
     console.log(productDetails)
     const submitHandler = (e) => {
+        let token = logState.userInfo.token
         e.preventDefault()      
-        dispatch(updateProduct(name, image, brand, category, countInStock, description, price, productId))   
+        dispatch(updateProduct(name, image, brand, category, countInStock, description, price, productId, token))   
     }
 
     const uploadFileHandler = async(e) => {
@@ -90,9 +91,9 @@ const UpdateProductScreen = ({ match, history }) => {
     return (
         <Container className="d-flex flex-column align-items-center" >
             
-            {loading ? <Loader /> :  errorMessage.length !== 0 ? <Message variant = "danger"> {errorMessage} </Message> : 
+            {loading ? <Loader /> :  errorMessage.length !== 0 ? <Alert variant = "danger" style={{top:"4rem"}}> {errorMessage} </Alert> : 
             logState.isLogged === false ?
-            <Alert variant = "danger" style={{marginTop: "4rem"}}> You must be logged in as an Admin to view this page <Link to="/login" style={{marginLeft:"2rem"}}>Log in</Link> </Alert>
+            <Alert variant = "danger" style={{top: "4rem"}}> You must be logged in as an Admin to view this page <Link to="/login" style={{marginLeft:"2rem"}}>Log in</Link> </Alert>
             :
             successMessage.length !==0 ? <Alert variant = "success" style={{marginTop: "4rem"}}> {successMessage} <Link to="/admin/productList" style={{marginLeft:"2rem"}}>Go back</Link> </Alert>
             :
@@ -104,7 +105,7 @@ const UpdateProductScreen = ({ match, history }) => {
                     <Button className = "btn-dark my-4 confirm rounded">Go Back</Button>
                 </Link>
     
-                <h1 className="my-4" style={{color:"#343a40"}}>Update Product</h1>
+                <h1 className="my-4 ivory" >Update Product</h1>
 
                 <Form onSubmit={submitHandler}>
 
@@ -113,8 +114,8 @@ const UpdateProductScreen = ({ match, history }) => {
                         <Col md={5} style={{margin:"auto"}}>
                             <Row className="d-flex flex-column align-items-center">
                                 <Form.Group controlId="image">
-                                    <Form.Label className="d-flex flex-column align-items-center" style={{color:"#343a40"}}>Image Path</Form.Label>
-                                    <Form.Control className= "coolBorder" type="text" placeholder="enter image path" value={image} onChange={ (e)=> setImage(e.target.value)}></Form.Control>
+                                    <Form.Label className="d-flex flex-column align-items-center ivory" >Image Path</Form.Label>
+                                    <Form.Control type="text" placeholder="enter image path" value={image} onChange={ (e)=> setImage(e.target.value)}></Form.Control>
                                     <Form.File id="image-file" label="Choose file" custom onChange={uploadFileHandler} style={{marginTop:"10px"}}></Form.File>
                                     {uploading && <Loader />}
                                 </Form.Group>
@@ -129,36 +130,36 @@ const UpdateProductScreen = ({ match, history }) => {
                         
                         <Col md={5} style={{margin:"auto"}}>
                             <Form.Group controlId="description" >
-                                <Form.Label className="d-flex flex-column align-items-center" style={{color:"#343a40"}}>Description</Form.Label>
-                                <Form.Control className= "coolBorder" as="textarea" rows="5" placeholder="Enter description..." value={description} onChange={ (e)=> setDescription(e.target.value)}></Form.Control>
+                                <Form.Label className="d-flex flex-column align-items-center ivory" >Description</Form.Label>
+                                <Form.Control as="textarea" rows="5" placeholder="Enter description..." value={description} onChange={ (e)=> setDescription(e.target.value)}></Form.Control>
                                 {updateErrorMessage.includes("description") && <Message variant = "danger"> Description is required </Message>}
                             </Form.Group>
                         </Col>
 
                         <Col md={5} style={{margin:"auto", marginTop:"4rem"}}>
                             <Form.Group controlId="name" >
-                                <Form.Label className="d-flex flex-column align-items-center" style={{color:"#343a40"}}>Name</Form.Label>
-                                <Form.Control className= "coolBorder" type="text" placeholder="enter name" value={name} onChange={ (e)=> setName(e.target.value)}></Form.Control>
+                                <Form.Label className="d-flex flex-column align-items-center ivory" >Name</Form.Label>
+                                <Form.Control type="text" placeholder="enter name" value={name} onChange={ (e)=> setName(e.target.value)}></Form.Control>
                                 {updateErrorMessage.includes("name") && <Message variant = "danger"> Name is required </Message>}
                             </Form.Group>
 
                             <Form.Group controlId="brand" >
-                                <Form.Label className="d-flex flex-column align-items-center" style={{color:"#343a40"}}>Brand</Form.Label>
-                                <Form.Control className= "coolBorder" type="text" placeholder="enter brand" value={brand} onChange={ (e)=> setBrand(e.target.value)}></Form.Control>
+                                <Form.Label className="d-flex flex-column align-items-center ivory" >Brand</Form.Label>
+                                <Form.Control type="text" placeholder="enter brand" value={brand} onChange={ (e)=> setBrand(e.target.value)}></Form.Control>
                                 {updateErrorMessage.includes("brand") && <Message variant = "danger"> Brand is required </Message>}
                             </Form.Group>
                         </Col>
 
                         <Col md={5} style={{margin:"auto", marginTop:"4rem"}}>
                             <Form.Group controlId="category" >
-                                <Form.Label className="d-flex flex-column align-items-center" style={{color:"#343a40"}}>Category</Form.Label>
-                                <Form.Control className= "coolBorder" type="text" placeholder="enter category" value={category} onChange={ (e)=> setCategory(e.target.value)}></Form.Control>
+                                <Form.Label className="d-flex flex-column align-items-center ivory" >Category</Form.Label>
+                                <Form.Control type="text" placeholder="enter category" value={category} onChange={ (e)=> setCategory(e.target.value)}></Form.Control>
                                 {updateErrorMessage.includes("category") && <Message variant = "danger"> Category is required </Message>}
                             </Form.Group>
 
                             <Form.Group controlId="countInStock" >
-                                <Form.Label className="d-flex flex-column align-items-center" style={{color:"#343a40"}}>Products in stock</Form.Label>
-                                <Form.Control className= "coolBorder" type="number" placeholder="enter count in stock" value={countInStock} onChange={ (e)=> setCountInStock(e.target.value)}></Form.Control>
+                                <Form.Label className="d-flex flex-column align-items-center ivory" >Products in stock</Form.Label>
+                                <Form.Control type="number" placeholder="enter count in stock" value={countInStock} onChange={ (e)=> setCountInStock(e.target.value)}></Form.Control>
                                 {updateErrorMessage.includes("countInStock") && <Message variant = "danger"> Amount required </Message>}
                             </Form.Group>
                         </Col>
@@ -168,8 +169,8 @@ const UpdateProductScreen = ({ match, history }) => {
                     <Row className="d-flex flex-column align-items-center">
                         <Col md={3}  style={{margin:"auto", marginTop:"2rem"}}>
                             <Form.Group controlId="price" >
-                                <Form.Label className="d-flex flex-column align-items-center" style={{color:"#343a40"}}> $ Price</Form.Label>
-                                <Form.Control className= "coolBorder" type="number" placeholder="enter price per unit" value={price} onChange={ (e)=> setPrice(e.target.value)}></Form.Control>
+                                <Form.Label className="d-flex flex-column align-items-center ivory" > $ Price</Form.Label>
+                                <Form.Control type="number" placeholder="enter price per unit" value={price} onChange={ (e)=> setPrice(e.target.value)}></Form.Control>
                                 {updateErrorMessage.includes("price") && <Message variant = "danger"> Price is required </Message>}
                             </Form.Group>
                         </Col>

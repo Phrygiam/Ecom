@@ -53,10 +53,9 @@ export function fetchUsers(token) {
 
             const response = await fetch("/api/users", config)
             const data = await response.json()
-    
-            
+     
             dispatch(isSuccessful(data))
-           
+    
         } catch (error) {
             dispatch(isUnsuccessful(error.message))
         }

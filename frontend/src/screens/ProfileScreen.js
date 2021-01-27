@@ -39,8 +39,8 @@ const ProfileScreen = ({history}) => {
     return (
         <Container>
             {isLoading ? <Loader /> :
-             hasErrors ? <Message variant = "danger"> {message} </Message> :
-             log.isLogged === false ? (<Alert variant = "danger" style={{marginTop: "4rem"}}> You must be logged in to view your profile <Link to="/login" style={{marginLeft:"2rem"}}>Log in</Link> </Alert>
+             hasErrors ? <Alert variant = "danger" style={{top:"4rem"}}> {message} </Alert> :
+             log.isLogged === false ? (<Alert variant = "danger" style={{top: "4rem"}}> You must be logged in to view your profile <Link to="/login" style={{marginLeft:"2rem"}}>Log in</Link> </Alert>
              ) : (
             <>
 
@@ -49,31 +49,31 @@ const ProfileScreen = ({history}) => {
 
                 <Col md={3} className= "my-5">
 
-                    <h2 className= "text-center">My Profile</h2>
+                    <h2 className= "text-center ivory">My Profile</h2>
 
                     <Form onSubmit={submitHandler} >
 
                         <Form.Group controlId="name" >
-                            <Form.Label className="d-flex flex-column align-items-center">Name </Form.Label>
+                            <Form.Label className="d-flex flex-column align-items-center ivory">Name </Form.Label>
                             <Form.Control className= "coolBorder" type="name" placeholder="enter new name" value={name} onChange={ (e)=> setName(e.target.value)}></Form.Control>
                         </Form.Group>
 
                         <Form.Group controlId="email" >
-                            <Form.Label className="d-flex flex-column align-items-center">Email Address</Form.Label>
+                            <Form.Label className="d-flex flex-column align-items-center ivory">Email Address</Form.Label>
                             <Form.Control className= "coolBorder" type="email" placeholder="enter new email" value={email} onChange={ (e)=> setEmail(e.target.value)}></Form.Control>
                         </Form.Group>
 
                         <Form.Group controlId="password" >
-                            <Form.Label className="d-flex flex-column align-items-center">Password</Form.Label>
+                            <Form.Label className="d-flex flex-column align-items-center ivory">Password</Form.Label>
                             <Form.Control className= "coolBorder" type="password" placeholder="enter new password" value={password} onChange={ (e)=> setPassword(e.target.value)}></Form.Control>
                         </Form.Group>
 
                         <Form.Group controlId="confirmPassword" >
-                            <Form.Label className="d-flex flex-column align-items-center">Confirm Password</Form.Label>
+                            <Form.Label className="d-flex flex-column align-items-center ivory">Confirm Password</Form.Label>
                             <Form.Control className= "coolBorder" type="password" placeholder ="confirm new password" value={confirmPassword} onChange={ (e)=> setConfirmPassword(e.target.value)}></Form.Control>
                         </Form.Group>
 
-                        <Row className="d-flex flex-column align-items-center">
+                        <Row className="d-flex flex-column align-items-center ivory">
                             {passwordError.length !==0 && <Message variant="danger">{passwordError}</Message>}
                         </Row>
 
@@ -85,11 +85,11 @@ const ProfileScreen = ({history}) => {
 
                 <Col md={9} style={{position:"relative"}}>
 
-                    <h2 className= "my-5">My Orders</h2>
+                    <h2 className= "my-5 ivory">My Orders</h2>
                     {listIsLoading ? <Loader /> :
                      listHasErrors ? <Message variant = "danger"> {listMessage} </Message> :
 
-                     <Table striped bordered hover responsive className = "table-sm">
+                     <Table striped bordered hover responsive className = "table-sm ivory">
 
                          <thead>
                              <tr>

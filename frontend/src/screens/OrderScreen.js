@@ -69,30 +69,31 @@ const OrderScreen = ({match}) => {
         }
         
     return (
-       <Container className="my-5">
+       <Container>
             {
-              loading ? <Loader /> : logState.isLogged === false ? (<Alert variant = "danger" style={{marginTop: "4rem"}}> You must be logged in to view your orders <Link to="/login" style={{marginLeft:"2rem"}}>Log in</Link> </Alert>
-             ) :  hasErrors ? (<Message variant = "danger"> {message} <Link to="/" style={{marginLeft:"2rem"}}> Back </Link> </Message>
+              loading ? <Loader /> : logState.isLogged === false ? (<Alert variant = "danger" style={{top: "4rem"}}> You must be logged in to view your orders <Link to="/login" style={{marginLeft:"2rem"}}>Log in</Link> </Alert>
+             ) :  hasErrors ? (<Alert variant = "danger" style={{top:"4rem"}}> {message} <Link to="/" style={{marginLeft:"2rem"}}> Back </Link> </Alert>
              ) : (
                 <>
 
                     <Meta title="Naoss Electronics | Order" />
                     
-                    <h1 style={{position:"relative", left:"1rem"}}> Order ID: {orderInfo._id}</h1>
-                    <Row>
+                    <h1 style={{position:"relative", left:"1rem", top:"1rem"}} className="orderID ivory"> Order ID: {orderInfo._id}</h1>
 
+                    <Row style={{marginTop:"2rem"}}>
+                        
                         <Col md={8}>
 
                             <ListGroup variant="flush">
 
-                                <ListGroup.Item>
-                                    <h3 className="mb-3">Shipping</h3>
+                                <ListGroup.Item style={{background:"rgba(52, 58, 64, 0.1)", borderTop:"1px solid rgba(255,255,255,.2)"}}>
+                                    <h3 className="mb-3" style={{color:"rgba(255,255,255,.8)"}}>Shipping</h3>
 
-                                    <p className="h5 my-3">Name: <span style={{marginLeft:"10px"}}>{orderInfo.user.name}</span></p>
+                                    <p className="h5 my-3" style={{color:"rgba(255,255,255,.8)"}}>Name: <span style={{marginLeft:"10px"}}>{orderInfo.user.name}</span></p>
                                         
-                                    <p className="h5 my-3">Email: <span style={{marginLeft:"10px"}}>{orderInfo.user.email}</span></p>
+                                    <p className="h5 my-3" style={{color:"rgba(255,255,255,.8)"}}>Email: <span style={{marginLeft:"10px"}}>{orderInfo.user.email}</span></p>
                                         
-                                    <p className="h5 my-3">Address:<span style={{marginLeft:"10px"}}>{orderInfo.shippingAddress.address} - {orderInfo.shippingAddress.city} - {orderInfo.shippingAddress.postalCode} - {orderInfo.shippingAddress.country}</span></p>
+                                    <p className="h5 my-3" style={{color:"rgba(255,255,255,.8)"}}>Address:<span style={{marginLeft:"10px"}}>{orderInfo.shippingAddress.address} - {orderInfo.shippingAddress.city} - {orderInfo.shippingAddress.postalCode} - {orderInfo.shippingAddress.country}</span></p>
                                     <Row>
                                         <Col>
                                         {orderInfo.isDelivered ? (<Message variant="success">Delivered at: {orderInfo.deliveredAt.substring(0, 10)}</Message>
@@ -103,9 +104,9 @@ const OrderScreen = ({match}) => {
                                     </Row>  
                                 </ListGroup.Item>
                                     
-                                <ListGroup.Item>
-                                    <h3 className="mb-3">Payment Method:</h3>
-                                    <p className="h5">Method:</p>
+                                <ListGroup.Item className="ivory" style={{background:"rgba(52, 58, 64, 0.1)", borderTop:"1px solid rgba(255,255,255,.2)"}}>
+                                    <h3 className="mb-3" style={{color:"rgba(255,255,255,.8)"}}>Payment Method:</h3>
+                                    <p className="h5" style={{color:"rgba(255,255,255,.8)"}}>Method:</p>
                                     <Row>
                                         <Col>
                                             <span style={{position:"relative", bottom:"10px"}}>{orderInfo.paymentMethod}</span>
@@ -127,20 +128,20 @@ const OrderScreen = ({match}) => {
                                     
                                 </ListGroup.Item>
 
-                                <ListGroup.Item>
-                                    <h3>Order Items:</h3>
+                                <ListGroup.Item className="ivory" style={{background:"rgba(52, 58, 64, 0.1)", borderTop:"1px solid rgba(255,255,255,.2)"}}>
+                                    <h3 style={{color:"rgba(255,255,255,.8)"}}>Order Items:</h3>
                                     {orderInfo.orderItems.length === 0 ? (<Message variant="danger">Your cart is empty</Message>
                                     ) : (
                                         <ListGroup variant="flush">
                                             {orderInfo.orderItems.map( (item, index) =>(
-                                                <ListGroup.Item key={index}>
+                                                <ListGroup.Item key={index} style={{backgroundColor: "rgba(0,0,0,.01)"}}>
                                                     <Row>
                                                         <Col md={2}>
                                                             <Image src={item.image} alt= {item.name} fluid rounded></Image>
                                                         </Col>
 
                                                         <Col>
-                                                        <Link to={`/product/${item.product}`}> 
+                                                        <Link style={{color:"rgba(255,255,255,.8)"}} to={`/product/${item.product}`}> 
                                                             {item.name}
                                                         </Link>
                                                         </Col>
@@ -161,35 +162,35 @@ const OrderScreen = ({match}) => {
                         </Col>
 
                         <Col md={4}>
-                            <Card>
+                            <Card style={{backgroundColor: "rgba(0,0,0,.05)"}}>
                                 <ListGroup variant="flush">
 
-                                    <ListGroup.Item>
+                                    <ListGroup.Item className="ivory" style={{background:"rgba(52, 58, 64, 0.1)", borderTop:"1px solid rgba(255,255,255,.2)"}}>
                                         <h3>Order Summary</h3>
                                     </ListGroup.Item>
 
-                                    <ListGroup.Item>
+                                    <ListGroup.Item className="ivory" style={{background:"rgba(52, 58, 64, 0.1)", borderTop:"2px solid rgba(255,255,255,.2)"}}>
                                         <Row>
                                             <Col>Items:</Col>
                                             <Col>${orderInfo.itemsPrice}</Col>
                                         </Row>
                                     </ListGroup.Item>
 
-                                    <ListGroup.Item>
+                                    <ListGroup.Item className="ivory" style={{background:"rgba(52, 58, 64, 0.1)", borderTop:"2px solid rgba(255,255,255,.2)"}}>
                                         <Row>
                                             <Col>Shipping:</Col>
                                             <Col>${orderInfo.shippingPrice}</Col>
                                         </Row>
                                     </ListGroup.Item>
 
-                                    <ListGroup.Item>
+                                    <ListGroup.Item className="ivory" style={{background:"rgba(52, 58, 64, 0.1)", borderTop:"2px solid rgba(255,255,255,.2)"}}>
                                         <Row>
                                             <Col>Tax:</Col>
                                             <Col>${orderInfo.taxPrice}</Col>
                                         </Row>
                                     </ListGroup.Item>
 
-                                    <ListGroup.Item>
+                                    <ListGroup.Item className="ivory" style={{background:"rgba(52, 58, 64, 0.1)", borderTop:"2px solid rgba(255,255,255,.2)"}}>
                                         <Row>
                                             <Col>Total:</Col>
                                             <Col>${orderInfo.totalPrice}</Col>
@@ -197,7 +198,7 @@ const OrderScreen = ({match}) => {
                                     </ListGroup.Item>
                                 
                                         {!orderInfo.isPaid && !logState.userInfo.isAdmin && (
-                                            <ListGroup.Item>
+                                            <ListGroup.Item style={{background:"rgba(52, 58, 64, 0.1)", borderTop:"1px solid rgba(255,255,255,.2)"}}>
                                                 {loadingPay && <Loader />}
                                                 {!sdkReady ? <Loader /> : (
                                                     <PayPalButton amount ={orderInfo.totalPrice} onSuccess={successPaymentHandler}></PayPalButton>
@@ -210,7 +211,7 @@ const OrderScreen = ({match}) => {
                                          logState.userInfo.isAdmin &&
                                          orderInfo.isPaid &&
                                          !orderInfo.isDelivered &&
-                                         <ListGroup.Item>
+                                         <ListGroup.Item className="ivory" style={{background:"rgba(52, 58, 64, 0.1)", borderTop:"1px solid rgba(255,255,255,.2)"}}>
                                              <Button variant="dark" className="btn-md rounded confirm" onClick={deliverHandler}> Mark as delivered </Button>
                                          </ListGroup.Item>}
                                     

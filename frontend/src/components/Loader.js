@@ -9,7 +9,10 @@ const Loader = () => {
             style = {{
                 width: "100px",
                 height: "100px",
-                margin: "25vh auto auto",
+                margin: "auto auto 10rem auto",
+                position:"relative",
+                color: "rgba(255,255,255,.6)",
+                top:"10rem",
                 display:"block",
                 }}>
             

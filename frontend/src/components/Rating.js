@@ -26,7 +26,7 @@ const Rating = ({value, text, color}) => {
             </span>
 
         </div>
-        <p className = 'my-2'>
+        <p className = 'my-2' style={{color:"rgba(255,255,255,.8)"}}>
         {text && text}
         </p>
         </>
