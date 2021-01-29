@@ -44,17 +44,15 @@ const OrderScreen = ({match}) => {
                     document.body.appendChild(script)
             }
 
-            if(orderInfo.length === undefined || isSuccessful || isDelivered) {
+            if(orderInfo || isSuccessful || isDelivered) {
                 const token = logState.userInfo.token
                 dispatch(fetchOrder(orderId, token))
-            } 
-            if (!orderInfo.isPaid) {
+            } else if (!orderInfo.isPaid) {
                 if(!window.paypal) {
                     addPayPalScript()
                 } else {
                     setSdkReady(true)
                 }
-
             }
         }, [dispatch, orderId, isSuccessful, isDelivered, orderInfo.length, orderInfo.isPaid])
 
