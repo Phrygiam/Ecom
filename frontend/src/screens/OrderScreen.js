@@ -44,10 +44,11 @@ const OrderScreen = ({match}) => {
                     document.body.appendChild(script)
             }
 
-            if(!orderInfo || isSuccessful || isDelivered) {
+            if(orderInfo || isSuccessful || isDelivered) {
                 const token = logState.userInfo.token
                 dispatch(fetchOrder(orderId, token))
-            } else if (!orderInfo.isPaid) {
+            }
+            if (!orderInfo.isPaid) {
                 if(!window.paypal) {
                     addPayPalScript()
                 } else {
