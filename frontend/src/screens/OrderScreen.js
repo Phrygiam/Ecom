@@ -56,7 +56,7 @@ const OrderScreen = ({match}) => {
                 }
             }
             
-        }, [dispatch, orderId, isSuccessful, isDelivered, orderInfo.length, orderInfo.isPaid])
+        }, [dispatch, orderId, isSuccessful, isDelivered, orderInfo, orderInfo.isPaid])
 
         // payment result comes from paypal
         const successPaymentHandler = (paymentResult) => {
