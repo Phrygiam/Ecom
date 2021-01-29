@@ -10,6 +10,7 @@ import {orderPaySelector, payOrder} from"../Redux/Reducers/orderPaySlice"
 import {orderDeliverSelector, deliverOrder} from"../Redux/Reducers/orderDeliverSlice"
 import {fetchOrderSelector, fetchOrder} from "../Redux/Reducers/fetchOrderSlice"
 import {Link} from "react-router-dom"
+import axios from 'axios'
 
 const OrderScreen = ({match}) => {
 
@@ -28,9 +29,9 @@ const OrderScreen = ({match}) => {
             // for security reasons
             const addPayPalScript = async() => {
                 // fetch client ID from the backend
-                    const response = await fetch("/api/config/paypal")
-                    const clientId = await response.text()
-                    
+                    //const response = await fetch("/api/config/paypal")
+                    //const clientId = await response.text()
+                    const {data: clientId} = await axios.get("/api/config/paypal")
                     const script = document.createElement("script")
                     script.type = "text/javascript"
                     script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`
@@ -47,14 +48,14 @@ const OrderScreen = ({match}) => {
             if(orderInfo || isSuccessful || isDelivered) {
                 const token = logState.userInfo.token
                 dispatch(fetchOrder(orderId, token))
-            }
-            if (!orderInfo.isPaid) {
+            }if (!orderInfo.isPaid) {
                 if(!window.paypal) {
                     addPayPalScript()
                 } else {
                     setSdkReady(true)
                 }
             }
+            
         }, [dispatch, orderId, isSuccessful, isDelivered, orderInfo.length, orderInfo.isPaid])
 
         // payment result comes from paypal
