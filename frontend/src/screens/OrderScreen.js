@@ -44,7 +44,7 @@ const OrderScreen = ({match}) => {
                     document.body.appendChild(script)
             }
 
-            if(orderInfo.length !== undefined || isSuccessful || isDelivered) {
+            if(orderInfo.length === undefined || isSuccessful || isDelivered) {
                 const token = logState.userInfo.token
                 dispatch(fetchOrder(orderId, token))
             } 
