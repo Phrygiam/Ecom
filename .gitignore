@@ -13,6 +13,7 @@ node_modules/
 /frontend/build
 
 # misc
+seeder.js
 instructions.txt
 .env
 .DS_Store
