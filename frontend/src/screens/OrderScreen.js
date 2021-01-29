@@ -29,9 +29,9 @@ const OrderScreen = ({match}) => {
             // for security reasons
             const addPayPalScript = async() => {
                 // fetch client ID from the backend
-                    //const response = await fetch("/api/config/paypal")
-                    //const clientId = await response.text()
-                    const {data: clientId} = await axios.get("/api/config/paypal")
+                    const response = await fetch("/api/config/paypal")
+                    const clientId = await response.text()
+                    //const {data: clientId} = await axios.get("/api/config/paypal")
                     const script = document.createElement("script")
                     script.type = "text/javascript"
                     script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`
