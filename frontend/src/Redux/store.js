@@ -37,7 +37,8 @@ const store = configureStore({
         users: userListSlice,
         review: productReviewSlice,
         topProducts: topProductsSlice
-    }
+    },
+    devTools: false
 })
 
 export default store
