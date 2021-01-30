@@ -33,10 +33,12 @@ const uploadRoutes = require("./routes/uploadRoutes")
 app.use("/api/upload", uploadRoutes)
 app.use("/uploads", express.static("uploads")) 
 
+/*
 app.get("/api/products/:id", (req, res) => {
     const product = products.find(product =>product._id === req.params.id)
     res.json(product)
 })
+*/
 
 app.get("/api/config/paypal", (req, res) => {
     res.send(process.env.PAYPAL_CLIENT_ID)
