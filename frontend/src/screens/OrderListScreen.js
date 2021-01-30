@@ -25,7 +25,7 @@ const OrderListScreen = ({history}) => {
             history.push("/")
         }
         
-    }, [dispatch, history, logState])
+    }, [dispatch, history, logState, log.userInfo.token])
 
     return (
         <Container>

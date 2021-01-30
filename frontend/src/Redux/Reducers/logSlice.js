@@ -2,7 +2,6 @@ import {createSlice} from "@reduxjs/toolkit"
 import {resetFetchOrderList} from "./fetchOrderListSlice"
 import {orderReset} from "./orderSlice"
 import {cartReset} from "./cartSlice"
-import {getDetailsReset} from "./fetchUpdateProductSlice"
 
 const userInfoFromStorage = localStorage.getItem("userInfo") === null ? [] : JSON.parse(localStorage.getItem("userInfo"))
 

@@ -18,8 +18,7 @@ const SignScreen = ({location, history}) => {
     const [passwordError, setPasswordError] = useState("")
 
     const dispatch = useDispatch()
-    const sign = useSelector(signSelector)
-    const {isLoading, hasErrors, errorMessage, signErrorMessage} = useSelector(signSelector)
+    const {isLoading, errorMessage, signErrorMessage} = useSelector(signSelector)
     const log = useSelector(logSelector)
     
     const submitHandler = (e) => {

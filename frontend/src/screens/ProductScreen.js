@@ -25,7 +25,7 @@ function ProductScreen({history, match}) {
         dispatch(resetReview())
         dispatch(fetchReview(match.params.id, token))
         dispatch(fetchDetails(match.params.id))
-    }, [match.params.id]) // we put this here, otherwise we will get a "missing dependancies" message
+    }, [match.params.id, dispatch, logState.userInfo.token]) // we put this here, otherwise we will get a "missing dependancies" message
     
     const addToCartHandler = () => {
         history.push(`/cart/${match.params.id}?qty=${quantity}`)

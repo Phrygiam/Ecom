@@ -44,7 +44,7 @@ const ProfileScreen = ({history}) => {
              ) : (
             <>
 
-            <Meta title={userInfo.name, " |", " Profile Page"} />
+            <Meta title={ userInfo.name + " |" + " Profile Page"} />
             <Row>
 
                 <Col md={3} className= "my-5">

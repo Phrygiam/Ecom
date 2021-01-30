@@ -19,6 +19,7 @@ app.use(express.json())
 if (process.env.NODE_ENV === "development") {
     app.use(morgan("dev"))
 }
+
 const productRoutes = require("./routes/productRoutes")
 app.use("/api/products", productRoutes)
 

@@ -19,7 +19,7 @@ const CartScreen = ({match, location, history}) => {
     useEffect( () => {
             productId && dispatch(fetchCart(productId, newQuantity, cart))
             history.replace("/cart")   
-    }, [dispatch, productId, newQuantity, cart, history])
+    }, [dispatch, productId, cart, newQuantity, history])
 
     const checkOutHandler = () => {
         history.push("/shipping")

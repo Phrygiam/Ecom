@@ -10,7 +10,6 @@ import {orderPaySelector, payOrder} from"../Redux/Reducers/orderPaySlice"
 import {orderDeliverSelector, deliverOrder} from"../Redux/Reducers/orderDeliverSlice"
 import {fetchOrderSelector, fetchOrder} from "../Redux/Reducers/fetchOrderSlice"
 import {Link} from "react-router-dom"
-import axios from 'axios'
 
 const OrderScreen = ({match}) => {
 
@@ -31,7 +30,6 @@ const OrderScreen = ({match}) => {
                 // fetch client ID from the backend
                     const response = await fetch("/api/config/paypal")
                     const clientId = await response.text()
-                    //const {data: clientId} = await axios.get("/api/config/paypal")
                     const script = document.createElement("script")
                     script.type = "text/javascript"
                     script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`
@@ -56,7 +54,7 @@ const OrderScreen = ({match}) => {
                 }
             }
             
-        }, [dispatch, orderId, isSuccessful, isDelivered, orderInfo, orderInfo.isPaid])
+        }, [dispatch, orderId, isSuccessful, isDelivered, orderInfo, orderInfo.isPaid, logState.userInfo.token])
 
         // payment result comes from paypal
         const successPaymentHandler = (paymentResult) => {

@@ -4,6 +4,7 @@ import {Button, Form, Container, Alert, Image, Col, Row} from "react-bootstrap"
 import {useDispatch, useSelector} from "react-redux"
 import Loader from "../components/Loader"
 import Message from "../components/Message"
+import Meta from "../components/Meta"
 import {createProduct, getDetailsReset, detailsSelector} from "../Redux/Reducers/fetchUpdateProductSlice"
 import {logSelector} from "../Redux/Reducers/logSlice"
 import axios from "axios"
@@ -11,7 +12,7 @@ import axios from "axios"
 const CreateProductScreen = ({ history }) => {
 
     const dispatch = useDispatch()
-    const {loading, hasErrors, errorMessage, createErrorMessage, successMessage, productDetails} = useSelector(detailsSelector)
+    const {loading, errorMessage, createErrorMessage, successMessage} = useSelector(detailsSelector)
     const logState = useSelector(logSelector)
 
     const [name, setName] = useState("")
@@ -58,7 +59,7 @@ const CreateProductScreen = ({ history }) => {
 
     useEffect( () => {
         dispatch(getDetailsReset())
-    },[])
+    },[dispatch])
 
         
         
@@ -67,6 +68,8 @@ const CreateProductScreen = ({ history }) => {
 
     return (
         <Container className="d-flex flex-column align-items-center" >
+
+            <Meta title="Naoss Electronics | Create Product" />
             
             {loading ? <Loader /> :  errorMessage.length !== 0 ? <Alert variant = "danger" style={{top:"4rem"}}> {errorMessage} </Alert> : 
             logState.isLogged === false ?

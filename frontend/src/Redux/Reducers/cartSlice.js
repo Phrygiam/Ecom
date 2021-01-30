@@ -29,7 +29,7 @@ const cartSlice = createSlice({
         getCartUpdate: (state, {payload}) => {
             state.loading = false
             state.hasErrors = false
-            state.cartItems.map(item => {
+            state.cartItems.forEach(item => {
                 if (item.product === payload.itemExists.product) {
                    item.quantity += payload.newQuantity
                    item.message = ""
@@ -41,7 +41,7 @@ const cartSlice = createSlice({
         getCartOrderMax: (state, {payload}) => {
             state.loading = false
             state.hasErrors = false
-            state.cartItems.map(item => {
+            state.cartItems.forEach(item => {
                 if (item.product === payload.itemExists.product) {
                    item.quantity = payload.maxOrder
                    item.message = "You reached the maximum amount you can order"

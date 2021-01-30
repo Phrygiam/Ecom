@@ -13,7 +13,6 @@ const ProductReviewScreen = ({match, history}) => {
 
     const { 
         loading: loadingReview, 
-        hasErrors: reviewHasErrors, 
         productReview, 
         errorMessage: reviewErrorMessage, 
         createErrorMessage, 
@@ -44,7 +43,7 @@ const ProductReviewScreen = ({match, history}) => {
         setRating(productReview.rating)
         setComment(productReview.comment)
 
-    }, [match.params.id,productReview.rating, productReview.comment,logState, dispatch])
+    }, [match.params.id,productReview.rating, productReview.comment,logState, dispatch, history])
 
     useEffect( () => {
         if (successMessage.length > 0) {

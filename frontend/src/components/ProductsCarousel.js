@@ -13,7 +13,7 @@ const ProductsCarousel = () => {
 
     useEffect( () => {
         dispatch(fetchTopProducts())
-    }, [])
+    }, [dispatch])
 
     return (
             

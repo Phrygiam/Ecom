@@ -14,7 +14,7 @@ const LoginScreen = ({history}) => {
 
     const dispatch = useDispatch()
     const log = useSelector(logSelector)
-    const {isLoading, hasErrors, errorMessage, logErrorMessage} = useSelector(logSelector)
+    const {isLoading, errorMessage, logErrorMessage} = useSelector(logSelector)
 
     const submitHandler = (e) => {
         e.preventDefault()
