@@ -27,7 +27,6 @@ const UpdateProductScreen = ({ match, history }) => {
     const [uploading, setUploading] = useState(false)
     const [uploadingError, setUploadingError] = useState("")
 
-    console.log(productDetails)
     const submitHandler = (e) => {
         let token = logState.userInfo.token
         e.preventDefault()      
