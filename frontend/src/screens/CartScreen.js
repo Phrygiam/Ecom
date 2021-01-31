@@ -10,7 +10,7 @@ import {cartSelector, fetchCart} from "../Redux/Reducers/cartSlice"
 const CartScreen = ({match, location, history}) => {
 
     const productId = match.params.id 
-    const newQuantity = location.search ? Number(location.search.split("=")[1]) : 1
+    const newQuantity = location.search ? Number(location.search.split("=")[1]) : null
 
 
     const dispatch = useDispatch()
