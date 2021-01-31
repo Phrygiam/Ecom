@@ -3,7 +3,10 @@ import {createSlice} from "@reduxjs/toolkit"
 const initialState = {
     loading: false,
     hasErrors: false,
-    productReview: {},
+    productReview: {
+        rating: 0,
+        comment: ""
+    },
     errorMessage: "",
     createErrorMessage: "",
     deleteErrorMessage: "",

@@ -42,7 +42,7 @@ const ProductReviewScreen = ({match, history}) => {
         dispatch(fetchReview(match.params.id, token))
         setRating(productReview.rating)
         setComment(productReview.comment)
-
+        
     }, [match.params.id,productReview.rating, productReview.comment,logState, dispatch, history])
 
     useEffect( () => {
