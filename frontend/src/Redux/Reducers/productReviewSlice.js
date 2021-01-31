@@ -166,10 +166,7 @@ export function fetchReview(productId, token) {
             
             const config = {
                 method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    "auth-token": token
-                }
+                headers: {"auth-token": token}
             }
 
             const response = await fetch(`/api/products/${productId}/reviews`, config)
