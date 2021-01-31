@@ -207,6 +207,11 @@ const fetchProductReview = async( req, res) => {
                             })
                         }
                     })
+                } else {
+                    res.status(200).json({
+                        rating: 0,
+                        comment: ""
+                    })
                 }
             }
     } catch (error) {

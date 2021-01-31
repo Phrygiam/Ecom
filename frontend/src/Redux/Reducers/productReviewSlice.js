@@ -172,14 +172,12 @@ export function fetchReview(productId, token) {
             const response = await fetch(`/api/products/${productId}/reviews`, config)
             const data = await response.json()
 
-            if (!data.error && data.rating || data.comment ) {
+            if (!data.error) {
                 dispatch(fetchReviewSuccess(data))
             } else if (data.error) {
                 dispatch(fetchReviewFailure(data.error))
-            } else {
-                dispatch(resetReview())
             }
-
+            
         } catch (error) {
             dispatch(serverError(error.message))
         }
