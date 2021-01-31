@@ -44,7 +44,10 @@ const productReviewSlice = createSlice({
         fetchReviewSuccess: (state, {payload}) => {
             state.loading = false
             state.hasErrors = false
-            state.productReview = payload
+            state.productReview = {
+                rating: payload.rating,
+                comment: payload.comment
+            }
             state.errorMessage = ""
             state.createErrorMessage = ""
             state.deleteErrorMessage = ""
@@ -66,7 +69,10 @@ const productReviewSlice = createSlice({
         createReviewSuccess: (state, {payload}) => {
             state.loading = false
             state.hasErrors = false
-            state.productReview = payload
+            state.productReview = {
+                rating: payload.rating,
+                comment: payload.comment
+            }
             state.errorMessage = ""
             state.createErrorMessage = ""
             state.deleteErrorMessage = ""
