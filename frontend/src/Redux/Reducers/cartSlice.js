@@ -79,7 +79,7 @@ export function fetchCart (productId, newQuantity, cart) {
             dispatch(getCart())
 
             try {
-                const response = await fetch(`http://localhost:5000/api/products/${productId}`)
+                const response = await fetch(`/api/products/${productId}`)
                 const data = await response.json()
                 const allItems = cart.cartItems
                 const itemExists = allItems.find(item => item.product === data._id)
