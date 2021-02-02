@@ -169,22 +169,20 @@ function ProductScreen({history, match}) {
                            
                            <ListGroup.Item key={review._id} className="glass ivory">
                                 <p style={{position:"relative", right:"12px"}}>{review.name}</p>
-                                {}
+                                
                                 <Row>
-                                    <Col>
+                                    
                                         <Rating value={review.rating}></Rating>
-                                    </Col>
-                                    <Col>
-                                        <p> Reviewed on: {review.createdAt.substring(0, 10).split("-").reverse().join("-")}</p>
-                                    </Col>
-                                    <Col>
+                                    
+                                        <p className="reviewDate"> Reviewed on: {review.createdAt.substring(0, 10).split("-").reverse().join("-")}</p>
+                                    
                                         { review.verified === "true" && <strong style={{color:"orange", fontSize:"1rem", fontWeight:"800"}}><i className="far fa-check-circle"></i>Verified purchase</strong>}
-                                    </Col>
-                                   
-                                   
-                                </Row>                              
+                                    
+                                </Row>   
+                                                            
                                 <p style={{position:"relative", right:"12px"}}>{review.comment}</p>
                            </ListGroup.Item>
+                           
                        ))}
                      
                    </ListGroup>

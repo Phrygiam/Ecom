@@ -17,6 +17,10 @@ h3 {
   color:white;
 }
 
+.reviewDate {
+  margin-left:3rem;
+}
+
 /* SCROLL BARS */ 
 
 ::-webkit-scrollbar {
@@ -295,6 +299,11 @@ input[type="checkbox"] + *::before {
  @media (max-width: 765px) {
    .review {
      text-align: center;
+   }
+
+   .reviewDate {
+     margin-top:5px;
+     margin-left:0;
    }
 
    .reviewButton1 {

@@ -53,7 +53,8 @@ const ProductReviewScreen = ({match, history}) => {
         if (deleteMessage.length > 0) {
             setDeleteComment("Review successfully deleted!")
         }
-    }, [successMessage, deleteMessage])
+
+    }, [successMessage, deleteMessage, createErrorMessage])
 
     const submitHandler = (e) => {
         e.preventDefault()
@@ -111,7 +112,7 @@ const ProductReviewScreen = ({match, history}) => {
             </Row>
             </>
             }
-
+           
             { loadingReview ? <Loader /> :
               
               createErrorMessage.length > 0 ? <Alert variant = "danger"> {createErrorMessage} <Link to={`/product/${match.params.id}`} style={{marginLeft:"2rem"}}>Go back</Link></Alert> :
@@ -120,7 +121,7 @@ const ProductReviewScreen = ({match, history}) => {
               
               deleteComment.length > 0 ? <Alert variant = "success"> {deleteComment} <Link to={`/product/${match.params.id}`} style={{marginLeft:"2rem"}}>Go back</Link></Alert> :
               successComment.length > 0 ? <Alert variant = "success"> {successComment} <Link to={`/product/${match.params.id}`} style={{marginLeft:"2rem"}}>Go back</Link></Alert> :
-
+            
             <Row>
                 <>
                 <Col md={8}>
@@ -130,12 +131,12 @@ const ProductReviewScreen = ({match, history}) => {
                     <Col md={4} className="my-5">
 
                         <Form.Group controlId="rating">
-                            <Form.Label className="ivory" >Rating</Form.Label>
+                            <Form.Label className="ivory" >Rating - Select value</Form.Label>
                             <Form.Control as="select" 
                                         value={rating}
                                         onChange={ (e) => setRating(e.target.value)}
                                         className="coolBorder">
-                            <option value="" >Select value</option>
+                            <option value=""> 0 - Extremely unsatisfied</option>
                             <option value="1">1 - Very unsatisfied</option>
                             <option value="2">2 - Unsatisfied</option>
                             <option value="3">3 - Decent</option>
@@ -143,6 +144,7 @@ const ProductReviewScreen = ({match, history}) => {
                             <option value="5">5 - Extremely satisfied</option>
                             </Form.Control>
                         </Form.Group>
+                        
                         {createErrorMessage.includes("NaN") && <Alert variant = "danger"> Rating is required </Alert>}
                     </Col>
                     
@@ -155,7 +157,6 @@ const ProductReviewScreen = ({match, history}) => {
                                           onChange={ (e) => setComment(e.target.value)}
                                           className="coolBorder"></Form.Control>
                         </Form.Group>
-                        {createErrorMessage.includes("comment") && <Alert variant = "danger"> Comment is required </Alert>}
                     </Col>
 
                     <Row md={3}>
