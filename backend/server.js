@@ -31,7 +31,7 @@ app.use("/api/orders", orderRoutes)
 
 const uploadRoutes = require("./routes/uploadRoutes")
 app.use("/api/upload", uploadRoutes)
-app.use("/uploads", express.static("uploads")) 
+app.use("/uploads", express.static(path.join(__dirname, "../uploads"))) 
 
 /*
 app.get("/api/products/:id", (req, res) => {
