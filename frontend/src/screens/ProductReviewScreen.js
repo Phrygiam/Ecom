@@ -119,8 +119,8 @@ const ProductReviewScreen = ({match, history}) => {
               deleteErrorMessage.length > 0 ? <Alert variant = "danger"> {deleteErrorMessage} <Link to={`/product/${match.params.id}`} style={{marginLeft:"2rem"}}>Go back</Link></Alert> :
               reviewErrorMessage.length > 0 ? <Alert variant = "danger"> {reviewErrorMessage} <Link to={`/product/${match.params.id}`} style={{marginLeft:"2rem"}}>Go back</Link></Alert> :
               
-              deleteComment.length > 0 ? <Alert variant = "success"> {deleteComment} <Link to={`/product/${match.params.id}`} style={{marginLeft:"2rem"}}>Go back</Link></Alert> :
-              successComment.length > 0 ? <Alert variant = "success"> {successComment} <Link to={`/product/${match.params.id}`} style={{marginLeft:"2rem"}}>Go back</Link></Alert> :
+              deleteComment.length > 0 ? <Alert variant = "success" style={{marginTop:"3rem"}}> {deleteComment} <Link to={`/product/${match.params.id}`} style={{marginLeft:"2rem"}}>Go back</Link></Alert> :
+              successComment.length > 0 ? <Alert variant = "success" style={{marginTop:"3rem"}}> {successComment} <Link to={`/product/${match.params.id}`} style={{marginLeft:"2rem"}}>Go back</Link></Alert> :
             
             <Row>
                 <>

@@ -21,6 +21,65 @@ h3 {
   margin-left:3rem;
 }
 
+.verifiedPurchase {
+  color: orange;
+  font-size:1rem;
+  font-weight:800;
+  margin-left:2rem;
+  position:relative;
+  bottom:2px;
+}
+
+/* SIDEBAR */
+
+.outerSocialContainer {
+  left:0;
+  width:3.5%;
+  height:13rem;
+  bottom:25rem;
+  position:fixed;
+  clip-path: polygon(0 0, 80% 20%, 80% 80%, 0% 100%);
+  background-color: rgba(52, 58, 64, 0.4);
+  background-clip: padding-box;
+  backdrop-filter: blur( 4px );
+  z-index:1;
+}
+
+.innerSocialContainer {
+  position:absolute;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:80%;
+  height:80%;
+  bottom:5%;
+  left:5%;
+  clip-path: polygon(0 0, 80% 20%, 80% 80%, 0% 100%);
+  z-index:1;
+}
+
+.socialIcons {
+  position:absolute;
+  display:flex;
+  flex-wrap:wrap;
+}
+
+.fa-facebook,
+.fa-twitter,
+.fa-instagram {
+  color:rgba(255,255,255,.6);
+  background-color: rgba(52, 58, 64, 0);
+  margin-bottom:1rem;
+  margin-right:0.1rem;
+}
+
+.fa-facebook:hover,
+.fa-twitter:hover,
+.fa-instagram:hover {
+  transition: 0.15s linear;
+  color:rgba(144, 238, 144, 0.8);
+}
+
 /* SCROLL BARS */ 
 
 ::-webkit-scrollbar {
@@ -296,6 +355,8 @@ input[type="checkbox"] + *::before {
   color:rgba(255,255,255,.8);
 }
 
+
+
  @media (max-width: 765px) {
    .review {
      text-align: center;
@@ -306,6 +367,11 @@ input[type="checkbox"] + *::before {
      margin-left:0;
    }
 
+   .verifiedPurchase {
+     margin-left:0;
+     margin-bottom:1rem;
+   }
+
    .reviewButton1 {
      display:block;
      margin-left:auto;
@@ -314,9 +380,53 @@ input[type="checkbox"] + *::before {
 
    .carouselFont {
     font-size:12px;
+    margin-top:2rem;
   }
 
   .orderID {
     font-size:17px;
+  }
+
+ }
+
+
+/* SOCIAL BAR */
+
+ @media(max-width:1040px) {
+
+  .outerSocialContainer,
+  .innerSocialContainer{
+    display:none;
+  }
+
+ }
+
+ @media (min-width: 1040px) {
+  .fa-facebook,
+  .fa-twitter,
+  .fa-instagram {
+    font-size:1.2rem;
+    margin-left:0.1rem;
+  }
+ }
+
+ @media (min-width:1275px) {
+
+  .fa-facebook,
+  .fa-twitter,
+  .fa-instagram {
+    font-size:1.4rem;
+    margin-left:0.2rem;
+
+  }
+ }
+
+ @media (min-width:1400px) {
+
+  .fa-facebook,
+  .fa-twitter,
+  .fa-instagram {
+    font-size:1.4rem;
+    margin-left:0.5rem;
   }
  }

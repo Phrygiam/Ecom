@@ -25,7 +25,7 @@ function ProductScreen({history, match}) {
         dispatch(resetReview())
         dispatch(fetchReview(match.params.id, token))
         dispatch(fetchDetails(match.params.id))
-    }, [match.params.id, dispatch, logState.userInfo.token]) // we put this here, otherwise we will get a "missing dependancies" message
+    }, [match.params.id, dispatch, logState.userInfo.token])
     
     const addToCartHandler = () => {
         history.push(`/cart/${match.params.id}?qty=${quantity}`)
@@ -176,7 +176,7 @@ function ProductScreen({history, match}) {
                                     
                                         <p className="reviewDate"> Reviewed on: {review.createdAt.substring(0, 10).split("-").reverse().join("-")}</p>
                                     
-                                        { review.verified === "true" && <strong style={{color:"orange", fontSize:"1rem", fontWeight:"800"}}><i className="far fa-check-circle"></i>Verified purchase</strong>}
+                                        { review.verified === "true" && <strong className="verifiedPurchase"><i className="far fa-check-circle"></i>Verified purchase</strong>}
                                     
                                 </Row>   
                                                             
