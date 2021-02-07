@@ -78,6 +78,8 @@ h3 {
 .fa-instagram:hover {
   transition: 0.15s linear;
   color:rgba(144, 238, 144, 0.8);
+  font-size:210%;
+  transition: 0.25 linear
 }
 
 /* SCROLL BARS */ 
@@ -402,12 +404,20 @@ input[type="checkbox"] + *::before {
  }
 
  @media (min-width: 1040px) {
+
   .fa-facebook,
   .fa-twitter,
   .fa-instagram {
     font-size:1.2rem;
     margin-left:0.1rem;
   }
+
+  .fa-facebook:hover,
+  .fa-twitter:hover,
+  .fa-instagram:hover {
+    font-size:160%;
+  }
+
  }
 
  @media (min-width:1275px) {
@@ -417,8 +427,14 @@ input[type="checkbox"] + *::before {
   .fa-instagram {
     font-size:1.4rem;
     margin-left:0.2rem;
-
   }
+
+  .fa-facebook:hover,
+  .fa-twitter:hover,
+  .fa-instagram:hover {
+    font-size:185%;
+  }
+
  }
 
  @media (min-width:1400px) {
@@ -429,4 +445,11 @@ input[type="checkbox"] + *::before {
     font-size:1.4rem;
     margin-left:0.5rem;
   }
+
+  .fa-facebook:hover,
+  .fa-twitter:hover,
+  .fa-instagram:hover {
+    font-size:195%;
+  }
+
  }
