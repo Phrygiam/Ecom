@@ -24,22 +24,20 @@ const OrderScreen = ({match}) => {
 
         useEffect( () => {
             
-            // this is used to dynamycally add the paypal script to the frontend by fetching the clientId from the backend
-            // for security reasons
             const addPayPalScript = async() => {
-                // fetch client ID from the backend
+                
                     const response = await fetch("/api/config/paypal")
                     const clientId = await response.text()
                     const script = document.createElement("script")
                     script.type = "text/javascript"
                     script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`
-                    // make the script asyncronous
+            
                     script.async = true
 
                     script.onload = () => {
                         setSdkReady(true)
                     }
-                    // then append the script to the body
+                    
                     document.body.appendChild(script)
             }
 
@@ -56,7 +54,6 @@ const OrderScreen = ({match}) => {
             
         }, [dispatch, orderId, isSuccessful, isDelivered, orderInfo.length, orderInfo.isPaid, logState.userInfo.token])
 
-        // payment result comes from paypal
         const successPaymentHandler = (paymentResult) => {
             dispatch(payOrder(orderId, paymentResult))
         }

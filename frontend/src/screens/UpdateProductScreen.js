@@ -34,8 +34,6 @@ const UpdateProductScreen = ({ match, history }) => {
     }
 
     const uploadFileHandler = async(e) => {
-        // [0] since its just a single file
-        
         const file = e.target.files[0]
         const formData = new FormData()
         formData.append("image", file)

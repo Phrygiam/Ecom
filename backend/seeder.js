@@ -13,12 +13,9 @@ const importData = async() => {
     
     try {
 
-        // create an array in which we inject dummy users
         const createdUsers = await User.insertMany(users)
-        // retrieve the admin id from the array
         const adminUser = createdUsers[0]._id
 
-        // map through the items to inject into the DB and return the same object with the admin signature id
         const sampleProducts = products.map( product => {
             return {
                 ...product,
@@ -65,9 +62,3 @@ if (process.argv[2] === "-d") {
     importData()
 )
 
-// this means that if we type "node backend/seeder -d" we will delete the data,
-// otherwise we will inject it
-
-// for sake of simplicity, add the following scripts in package.json:
-// "data:import": "node backend/seeder"
-// "data:destroy": "node backend/seeder -d"

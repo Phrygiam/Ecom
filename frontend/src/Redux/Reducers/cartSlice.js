@@ -1,6 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit"
 
-// if there is a localStorage set, load it into the initial state of the app, otherwise set it to an empty array
 const cartItemsFromStorage = localStorage.getItem("cartProducts") === null ? [] : JSON.parse(localStorage.getItem("cartProducts"))
 
 const initialState = {
@@ -84,14 +83,10 @@ export function fetchCart (productId, newQuantity, cart) {
                 const allItems = cart.cartItems
                 const itemExists = allItems.find(item => item.product === data._id)
                 
-
-                // check if the item exists and the amount in stock is > than the quantity the customer wants to order
-                // if all is positive, update the cart item quantity...
                 if (itemExists && itemExists.quantity+newQuantity >0 && data.countInStock > itemExists.quantity + newQuantity) { 
                     dispatch(getCartUpdate({itemExists, newQuantity}))
                 }
 
-                // otherwise filter the cart and delete the item
                  else if(itemExists && itemExists.quantity + newQuantity < 1) {
                     const newCart = cart.cartItems.filter(item => 
                         item.product !== itemExists.product
@@ -100,7 +95,6 @@ export function fetchCart (productId, newQuantity, cart) {
                     
                     }
 
-                // if you want to delete it directly through a button...
                  else if (itemExists && newQuantity === "del") {
                     const newCart = cart.cartItems.filter(item => 
                         item.product !== itemExists.product
@@ -109,14 +103,12 @@ export function fetchCart (productId, newQuantity, cart) {
                     
                     }
                 
-                // if you try to order more than the quantity available
                 else if (itemExists && data.countInStock <= itemExists.quantity + newQuantity) {
                     const maxOrder = data.countInStock
                     dispatch(getCartOrderMax({itemExists, maxOrder}))
                     
                 }
 
-                // ...if there is no selected item in the cart yet, add it...
                 else {
                     const newItem = {
                         product: data._id,

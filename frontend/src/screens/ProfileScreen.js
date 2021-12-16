@@ -27,7 +27,6 @@ const ProfileScreen = ({history}) => {
         if (password !== confirmPassword) {
             setPasswordError("Passwords do not match")
         }
-        // you need to create a Redux slice that matches the profile backend functions and put it here
         dispatch(update(name, email, password))
     }
 

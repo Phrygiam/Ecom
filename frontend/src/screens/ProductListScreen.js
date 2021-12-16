@@ -37,7 +37,6 @@ const ProductListScreen = ({ match, history}) => {
         if(!logState.isLogged) {
             history.push("/login")
         } else if(logState.userInfo && logState.userInfo.isAdmin) {
-            // dispatch(fetchProducts("", pageNumber))
         } else if (logState.userInfo && !logState.userInfo.isAdmin) {
             history.push("/")
         }

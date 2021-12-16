@@ -2,7 +2,6 @@ const mongoose = require("mongoose")
 
 const connectDB = async() => {
     try {
-        // conn returns a promise
         const conn = await mongoose.connect(process.env.MONGO_URI,{
             useUnifiedTopology:true,
             useNewUrlParser:true,
@@ -11,7 +10,7 @@ const connectDB = async() => {
         console.log(`MongoDB Connected: ${conn.connection.host}`)
     } catch (error) {
         console.error(`Error: ${error.message}`)
-        process.exit(1) // this means exit with failure
+        process.exit(1)
     }
 }
 

@@ -22,7 +22,6 @@ const PlaceOrderScreen = ({history}) => {
         const orderState = useSelector(orderSelector)
         const {itemsPrice, shippingPrice, taxPrice, totalPrice} = useSelector(amountSelector)
 
-        // calculate price
         const addDecimals = (number) => {
             return (Math.round(number * 100)/100).toFixed(2)
         }
@@ -56,7 +55,6 @@ const PlaceOrderScreen = ({history}) => {
                 
                 history.push(`/order/${orderState.orderInfo._id}`)
             }
-            // eslint-disable-next-line
         },[history, orderState.orderInfo.length])
 
         
